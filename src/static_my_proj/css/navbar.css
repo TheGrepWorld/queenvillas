@@ -1,0 +1,18 @@
+input[type=text] {
+    padding: 9px 30px;
+}
+.navbar .navbar-nav .nav-item .nav-link{
+    color: black;
+}
+.navbar .navbar-nav .nav-item .nav-link:hover{
+    color: rgb(104, 90, 235);
+
+}
+
+
+
+@media only screen and (max-width: 700px) {
+    .img-colapse {
+      display: none;
+    }
+  }
