@@ -1,6 +1,10 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static %} <!--  mandatory for css -->
+{% block base_head %}
+<link rel="stylesheet" href="/static/css/home_page.css">
+{% endblock %}
 
 {% block content %}
-<h1>hello jagdeep shaurya vinayak, text</h1>
+
+
 {% endblock %}
