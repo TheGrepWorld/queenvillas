@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Queen Villas</title>
     {% include 'base/css.html' %}
-    {% include 'base/navbar.html' %}
+
     {% block base_head %}{% endblock %}
 </head>
 
 <body>
+  {% include 'base/navbar.html' %}
  {% block content%} {% endblock %}
   {% include 'base/js.html'%}
   {% block javascript %}
