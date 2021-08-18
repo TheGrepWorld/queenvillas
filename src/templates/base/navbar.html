@@ -3,18 +3,16 @@
 <link rel="stylesheet" href="/static/css/navbar.css">
 {% endblock %}
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container-fluid">
-      <img src="https://codescandy.com/geeks-bootstrap-5/assets/images/brand/logo/logo.svg" alt="" class="navbar-brand">
+      <img src="https://codescandy.com/geeks-bootstrap-5/assets/images/brand/logo/logo.svg" alt="" class="navbar-brand logo">
     <div class="navbar-header">
 
-     
-      <img alt="avatar" src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-bell-outline-512.png" class="rounded-circle d-lg-none me-1" width="40">
-
-      <img alt="avatar" src="https://codescandy.com/geeks-bootstrap-5/assets/images/avatar/avatar-1.jpg" class="rounded-circle d-lg-none me-1" width="40">
+      <button type="button" class="btn btn-outline-success me-1 d-lg-none lb">Login</button>
+      <button type="button" class="btn btn-outline-danger d-lg-none sb">Sign Up</button>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon tgl-icon"></span>
       </button>
     </div>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -43,15 +41,16 @@
         
         <form class="m-2">
           <span class="ms-2 position-absolute mt-3"><i class="fa fa-search" style="color: rgba(27, 27, 27, 0.616);"></i></span>
-          <input type="text" class="form-control" placeholder="search listings">
+          <input type="text" class="form-control fi" placeholder="search listings">
         </form>
         
       </div>
 
-    
-      <img class="me-2 img-colapse" src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-bell-outline-512.png" width="40">
+        <button type="button" class="btn btn-outline-success me-2 btn-colapse ipad-portrait">Login</button>
+        <button type="button" class="btn btn-outline-danger btn-colapse ipad-portrait">Sign Up</button>
+      <!-- <img class="me-2 img-colapse" src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-bell-outline-512.png" width="40">
 
-      <img alt="avatar" src="https://codescandy.com/geeks-bootstrap-5/assets/images/avatar/avatar-1.jpg" class="rounded-circle me-1 img-colapse" width="40">
+      <img alt="avatar" src="https://codescandy.com/geeks-bootstrap-5/assets/images/avatar/avatar-1.jpg" class="rounded-circle me-1 img-colapse" width="40"> -->
       
     </div>
   </nav>

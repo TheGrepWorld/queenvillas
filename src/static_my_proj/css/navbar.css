@@ -1,4 +1,4 @@
-input[type=text] {
+.fi[type=text] {
     padding: 9px 30px;
 }
 .navbar .navbar-nav .nav-item .nav-link{
@@ -11,8 +11,38 @@ input[type=text] {
 
 
 
-@media only screen and (max-width: 700px) {
-    .img-colapse {
+@media only screen and (min-width: 200px) and (max-width: 990px){
+    .btn-colapse {
       display: none;
     }
+  }
+
+  /* @media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait) {
+    .ipad-portrait { display: none; } 
+  } */
+
+  @media only screen and (min-width: 280px) and (max-width: 360px) and (orientation:portrait) {
+    .ipad-portrait { display: none; } 
+    .lb,.sb{font-size: 14px;}
+  }
+  @media only screen and (device-width: 320px) and (device-height: 568px) and (orientation:portrait) {
+    .ipad-portrait { display: none; } 
+    .lb,.sb{font-size: 13px; padding: 3px;}
+  }
+  @media only screen and (device-width: 280px) and (device-height: 653px) and (orientation:portrait) {
+    .ipad-portrait { display: none; } 
+    .lb,.sb{font-size: 7px;}
+    .tgl-icon{font-size: 8px;}
+    .logo{width: 90px;}
+  }
+
+  @media only screen and (device-width: 320px) and (device-height: 634px) and (orientation:portrait) {
+    .ipad-portrait { display: none; } 
+    .lb,.sb{font-size: 12px;}
+    .tgl-icon{font-size: 12px;}
+    .logo{width: 90px;}
+
+  }
+  @media all and (device-width: 1024px) and (device-height: 768px) and (orientation:landscape) {
+    .ipad-landscape { display: none; } 
   }
