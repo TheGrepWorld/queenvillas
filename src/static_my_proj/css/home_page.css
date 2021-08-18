@@ -20,3 +20,14 @@ body{
     .buy-btn{width: 180px;}
     .sell-btn{width: 180px;margin-top: 10px;}
   }
+  @media only screen and (device-width: 1366px) and (device-height: 768px) {
+    .qv{
+      padding: 0%;
+    }
+    .queenvillaText{
+      padding: 6%;
+    }
+    .perks{
+      max-width: 1250px;
+    }
+  }
