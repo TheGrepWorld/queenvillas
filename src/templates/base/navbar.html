@@ -1,6 +1,6 @@
 {% load static %} <!--  mandatory for css -->
 {% block base_head %}
-<link rel="stylesheet" href="/static/css/navbar.css">
+<link rel="stylesheet" href="/static/css/navbar.css?{% now 'U' %}">
 {% endblock %}
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -8,8 +8,8 @@
       <img src="https://codescandy.com/geeks-bootstrap-5/assets/images/brand/logo/logo.svg" alt="" class="navbar-brand logo">
     <div class="navbar-header">
 
-      <button type="button" class="btn btn-outline-success me-1 d-lg-none lb">Login</button>
-      <button type="button" class="btn btn-outline-danger d-lg-none sb">Sign Up</button>
+      <button type="button" class="btn btn-outline-success me-1 d-lg-none lb" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+      <button type="button" class="btn btn-outline-danger d-lg-none sb" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</button>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon tgl-icon"></span>
@@ -40,17 +40,111 @@
         </ul>
         
         <form class="m-2">
-          <span class="ms-2 position-absolute mt-3"><i class="fa fa-search" style="color: rgba(27, 27, 27, 0.616);"></i></span>
+          <span class="ms-2 position-absolute mt-3 "><i class="fa fa-search" style="color: rgba(27, 27, 27, 0.616);"></i></span>
           <input type="text" class="form-control fi" placeholder="search listings">
         </form>
         
       </div>
+{% if user.is_authenticated %}
+<p>{{ request.user }}</p>
+    <a href="/logout">Logout</a>
+{% else %}
+          <button type="button" class="btn btn-outline-success me-2 btn-colapse ipad-portrait" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+                <button type="button" class="btn btn-outline-danger btn-colapse ipad-portrait" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</button>
+{% endif %}
 
-        <button type="button" class="btn btn-outline-success me-2 btn-colapse ipad-portrait">Login</button>
-        <button type="button" class="btn btn-outline-danger btn-colapse ipad-portrait">Sign Up</button>
-      <!-- <img class="me-2 img-colapse" src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-bell-outline-512.png" width="40">
 
-      <img alt="avatar" src="https://codescandy.com/geeks-bootstrap-5/assets/images/avatar/avatar-1.jpg" class="rounded-circle me-1 img-colapse" width="40"> -->
-      
+
+        <!-- Modal -->
+<div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/login"  method="post">
+            {% csrf_token %}
+  <div class="mb-3">
+    <label for="loginusername" class="form-label">Email address</label>
+    <input type="text" class="form-control" id="loginusername" name="loginusername" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="loginpassword" class="form-label">Password</label>
+    <input type="password" class="form-control" id="loginpassword" name="loginpassword">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Log in</button>
+</form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- signup button -->
+  <!-- Button trigger modal -->
+{#<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signupModal">#}
+{#  Signup#}
+{#</button>#}
+
+<!-- Modal -->
+<div class="modal fade" id="signupModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signupModalLabel">Signup</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+        <form method='post' action='/signup' class="row g-3">
+              <div class="col-md-6">
+    <label for="fname" class="form-label">First Name</label>
+    <input type="text" class="form-control" id="fname" name="fname" required>
+  </div>
+  <div class="col-md-6">
+    <label for="lname" class="form-label">Last Name</label>
+    <input type="text" class="form-control" id="lname" name="lname" required>
+  </div>
+ <div class="col-12">
+    <label for="username" class="form-label">Username</label>
+    <input type="text" class="form-control" id="username" name="username" required>
+  </div>
+  <div class="col-12">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="email" name="email" required>
+  </div>
+            <div class="col-12">
+    <label for="phoneno" class="form-label">Contact Number</label>
+    <input type="text" class="form-control"  name="phoneno" id="phoneno" required>
+  </div>
+  <div class="col-12">
+    <label for="pass1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="pass1" name="pass1" required>
+  </div>
+            <div class="col-12">
+    <label for="pass2" class="form-label">Confirm Password</label>
+    <input type="password" class="form-control" id="pass2" name="pass2" required>
+  </div>
+
+
+  <div class="col-12">
+      {% csrf_token %}
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </div>
+</form>
+
+      </div>
+      <div class="modal-footer" style="text-align: center">
+          <p> Please signup to post a property </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
     </div>
   </nav>

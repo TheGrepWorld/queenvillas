@@ -1,0 +1,32 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
+  Login
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/login"  method="post">
+            {% csrf_token %}
+  <div class="mb-3">
+    <label for="loginusername" class="form-label">Email address</label>
+    <input type="text" class="form-control" id="loginusername" name="loginusername" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="loginpassword" class="form-label">Password</label>
+    <input type="password" class="form-control" id="loginpassword" name="loginpassword">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+      </div>
+    </div>
+  </div>
+</div>

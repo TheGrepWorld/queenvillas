@@ -1,0 +1,61 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signupModal">
+  Signup
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="signupModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signupModalLabel">Signup</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+        <form method='post' action='/signup' class="row g-3">
+              <div class="col-md-6">
+    <label for="fname" class="form-label">First Name</label>
+    <input type="text" class="form-control" id="fname" name="fname" required>
+  </div>
+  <div class="col-md-6">
+    <label for="lname" class="form-label">Last Name</label>
+    <input type="text" class="form-control" id="lname" name="lname" required>
+  </div>
+ <div class="col-12">
+    <label for="username" class="form-label">Username</label>
+    <input type="text" class="form-control" id="username" name="username" required>
+  </div>
+  <div class="col-12">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="email" name="email" required>
+  </div>
+            <div class="col-12">
+    <label for="phoneno" class="form-label">Contact Number</label>
+    <input type="text" class="form-control"  name="phoneno" id="phoneno" required>
+  </div>
+  <div class="col-12">
+    <label for="pass1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="pass1" name="pass1" required>
+  </div>
+            <div class="col-12">
+    <label for="pass2" class="form-label">Confirm Password</label>
+    <input type="password" class="form-control" id="pass2" name="pass2" required>
+  </div>
+
+
+  <div class="col-12">
+      {% csrf_token %}
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </div>
+</form>
+
+      </div>
+      <div class="modal-footer" style="text-align: center">
+          <p> Please signup to post a property </p>
+      </div>
+    </div>
+  </div>
+</div>
+
