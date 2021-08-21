@@ -13,11 +13,13 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
 from django.contrib import admin
 from django.urls import path,include
 from .views import home_page,handle_signup,handle_login,handle_logout
 from django.contrib.auth import views as auth_views
-
+from residential.views import add_property ,ResidentialListView
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,4 +32,10 @@ urlpatterns = [
     path('reset_password_sent',auth_views.PasswordResetDoneView.as_view(template_name='pwd_reset_sent.html'),name="password_reset_done"),
     path('reset/<uidb64>/<token>',auth_views.PasswordResetConfirmView.as_view(template_name='pwd_reset_view.html'),name='password_reset_confirm'),
     path('reset_password_complete',auth_views.PasswordResetCompleteView.as_view(template_name='pwd_reset_done.html'),name='password_reset_complete'),
+    path('post-residential-property', add_property , name='add'),
+    path('resenditial-listing', ResidentialListView.as_view() , name='rlist')
 ]
+
+if settings.DEBUG:
+    urlpatterns =urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns =urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

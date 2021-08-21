@@ -6,7 +6,12 @@ body{
     padding: 6%;
 }
 
-
+#test1{
+  display: none;
+}
+#test2{
+  display: none;
+}
   /* width */
   ::-webkit-scrollbar {
     width: 10px;
