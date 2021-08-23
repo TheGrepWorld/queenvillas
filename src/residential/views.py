@@ -1,13 +1,15 @@
+from django.http.response import Http404
 from django.shortcuts import render
-from .models import PropertyModelForm, PropertyImageForm
+from .models import PropertyModelForm
 from .models import ResidentialDetails
-from django.views.generic import ListView  , DetailView
+from django.views.generic import ListView, DetailView
+# from analytics.mixins import ObjectViewdMixin
+
 
 
 def add_property(request):
     property_form = PropertyModelForm()
-    property_image_form = PropertyImageForm()
-    return render(request, 'add_prop.html', {'form': property_form, 'image_form': property_image_form})
+    return render(request, 'add_prop.html', {'form': property_form})
 
 
 image_list = []
@@ -30,3 +32,31 @@ class ResidentialListView(ListView):
     def get_queryset(self,*args,**kwargs):
         request = self.request
         return ResidentialDetails.objects.all()
+
+
+class ResidentialDetailSlugView(DetailView):
+    queryset = ResidentialDetails.objects.all()
+    template_name = "residentials/detail.html"
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(ResidentialDetailSlugView, self).get_context_data(*args, **kwargs)
+        request = self.request
+        return context
+
+    def get_object(self, *args, **kwargs):
+        request = self.request
+        slug = self.kwargs.get('slug')
+
+
+        try:
+            instance = ResidentialDetails.objects.get(slug=slug)
+        except ResidentialDetails.DoesNotExist:
+            raise Http404("Not Found....")
+        except ResidentialDetails.MultipleObjectsReturned:
+            qs = ResidentialDetails.objects.filter(slug=slug)
+            instance = qs.first()
+        except:
+            raise Http404("Uhhmm.. !")
+        return instance
+
+
