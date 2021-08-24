@@ -3,7 +3,7 @@ from django.db import models
 from django.db.models.signals import pre_save
 from django.forms import ModelForm
 from django.urls import reverse
-
+from django.db.models import Q
 from queenvillas.utils import unique_slug_generator
 
 User = settings.AUTH_USER_MODEL
@@ -15,13 +15,14 @@ property_type = (('ap', 'APARTMENT'), ('kothi', 'KOTHI'), ('ih', 'INDEPENDENT HO
 furnish_type = (('furnished', 'FURNISHED'), ('semi', 'SEMI-FURNISHED'), ('un', 'UNFURNISHED'))
 av_status = (('uc', 'UNDER CONSTRUCTION'), ('rm', 'READY TO MOVE'))
 arrea_units = (('feet', 'sq.ft'), ('yards', 'yards'))
+possession_type = (('ready to move','Ready To Move'),('within 2 months','Within 2 Months'),('within 3 months','Within 3 Months'))
 
-
-class propertyPossesion(models.Model):
-    possession_type = models.CharField(max_length=500)
+class Amenity(models.Model):
+    amenity = models.CharField(max_length=500)
 
     def __str__(self):
-        return self.possession_type
+        return self.amenity
+
 
 
 class OtherRooms(models.Model):
@@ -31,24 +32,41 @@ class OtherRooms(models.Model):
         return self.other_rooms
 
 
-# class ResidentialPropertytManager(models.Manager):
-#     def get_queryset(self):
-#         return ProductQuerySet(self.model, using=self._db)
-#
-#     def all(self):
-#         return self.get_queryset().active()
-#
-#     def featured(self):
-#         return self.get_queryset().featured()
-#
-#     def get_by_id(self, id):
-#         qs = self.get_queryset().filter(id=id)
-#         if qs.count() == 1:
-#             return qs.first()
-#         return None
-#
-#     def search(self, query):
-#         return self.get_queryset().active().search(query)
+class ResidentialQuerySet(models.query.QuerySet):
+    def featured(self):
+        return self.filter(featured=True, active=True)
+
+    def active(self):
+        return self.filter(active=True)
+
+    def search(self, query1,query2,query3,query4,query5,query6):
+        lookups=(Q(amenities__amenity__icontains=query1) & Q(city__icontains=query2) &
+                 Q(locality__icontains=query3)
+                 & Q(bedrooms__gt=query4)
+                 & Q(expected_price__gt=query5) & Q( expected_price__lt=query6))
+        print("lookup= ", lookups)
+        return self.filter(lookups).distinct()
+
+
+class ResidentialManager(models.Manager):
+    def get_queryset(self):
+        return ResidentialQuerySet(self.model, using=self._db)
+
+    def all(self):
+        return self.get_queryset().active()
+
+    def featured(self):
+        return self.get_queryset().featured()
+
+    def get_by_id(self, id):
+        qs = self.get_queryset().filter(id=id)
+        if qs.count() == 1:
+            return qs.first()
+        return None
+
+    def search(self, query1,query2,query3,query4,query5,query6):
+        return self.get_queryset().active().search(query1,query2,query3,query4,query5,query6)
+
 
 class ResidentialDetails(models.Model):
     title = models.CharField(max_length=500)
@@ -63,20 +81,23 @@ class ResidentialDetails(models.Model):
     dim_length = models.IntegerField(null=True, blank=True)
     dim_breadth = models.IntegerField(null=True, blank=True)
     floors = models.IntegerField()
-    possession = models.ManyToManyField('propertyPossesion')
+    possession = models.CharField(max_length=255, choices=possession_type,default='none')
     bedrooms = models.IntegerField()
     bathrooms = models.IntegerField()
     balconies = models.IntegerField(null=True, blank=True)
     otherrooms = models.ManyToManyField('OtherRooms', blank=True)
+    amenities = models.ManyToManyField('Amenity', blank=True)
     furnishing = models.CharField(max_length=255, choices=furnish_type)
     availability = models.CharField(max_length=255, choices=av_status, default='uc')
     parkingspace = models.BooleanField(null=True, blank=True)
     ageofproperty = models.IntegerField()
-    image = models.ImageField(upload_to='images/' ,null=True, blank=True)
+    image = models.ImageField(upload_to='images/', null=True, blank=True)
     expected_price = models.IntegerField()
     price_per_marla = models.IntegerField(null=True, blank=True)
     description = models.TextField()
-    slug = models.SlugField(max_length=100,unique=True,blank=True)
+    slug = models.SlugField(max_length=100, unique=True, blank=True)
+    active=models.BooleanField(default=True)
+    featured=models.BooleanField(default=False)
     user = models.ForeignKey(User,
                              default=1,
                              null=True,
@@ -84,7 +105,7 @@ class ResidentialDetails(models.Model):
                              )
     timestamp = models.DateTimeField(auto_now_add=True)
 
-    # objects = ResidentialPropertytManager()
+    objects = ResidentialManager()
 
     def get_absolute_url(self):
         # return "/products/{slug}/".format(slug=self.slug)
@@ -106,6 +127,7 @@ class PropertyModelForm(ModelForm):
     class Meta:
         model = ResidentialDetails
         exclude = ['user']
+
 
 #
 # class PropertyImageForm(ModelForm):

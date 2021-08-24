@@ -1,20 +1,20 @@
 from django.contrib import admin
 # Register your models here.
 
-from .models import ResidentialDetails, propertyPossesion, OtherRooms
+from .models import ResidentialDetails, OtherRooms, Amenity
 
-admin.site.register(ResidentialDetails)
-admin.site.register(propertyPossesion)
+# admin.site.register(ResidentialDetails)
 admin.site.register(OtherRooms)
+admin.site.register(Amenity)
 
 
-# class PropertyImageInline(admin.TabularInline):
-#     model = PropertyImage
-#     extra = 3
-#
-#
-# class PropertyAdmin(admin.ModelAdmin):
-#     inlines = [PropertyImageInline, ]
+class ResidentialAdmin(admin.ModelAdmin):
+    list_display = ['__str__', 'slug']
+
+    class Meta:
+        model = ResidentialDetails
+
+    search_fields = ['title', 'slug', 'amenities__amenity']
 
 
-# admin.site.register(ResidentialDetails, PropertyAdmin)
+admin.site.register(ResidentialDetails, ResidentialAdmin)
