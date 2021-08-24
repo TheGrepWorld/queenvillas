@@ -1,6 +1,23 @@
-<h3>Password reset sent</h3>
+{% extends "base.html" %}
+{% load static %}
+<!--  mandatory for css -->
+{% block base_head %}
+<link rel="stylesheet" href="/static/css/reset_password.css">
+{% endblock %}
+
+{% block content %}
+
+<div class="content_pass">
+
+    <h3>Password Reset Email Sent!</h3>
+
+    <p class="link_sent_text"><br><i class="fas fa-lock"></i> <span></span> We’ve emailed you instructions for setting your password. If an account exists with the email you entered, you
+        will receive them shortly. <br><br>
+
+    <i class="fas fa-lock"></i> <span></span> If you didn’t receive the email, please make sure you’ve entered the correct email address that you are registered with, and check your
+        spam folder.</p>
 
 
-<p>We’ve emailed you instructions for setting your password, if an account exists with the email you entered. You should receive them shortly.</p>
+</div>
 
-<p>If you don’t receive an email, please make sure you’ve entered the address you registered with, and check your spam folder.</p>
+{% endblock %}
