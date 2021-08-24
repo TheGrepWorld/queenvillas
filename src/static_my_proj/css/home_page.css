@@ -1,62 +1,156 @@
 body{
-    background-color: #dbdbdb5b;
-    overflow-x: hidden;
+  /*background-color: #dbdbdb5b;*/
+  background-color: #f5f4f8;
+  overflow-x: hidden;
 }
 .qv{
-    padding: 6%;
+  padding: 6%;
+}
+.header-bg{
+  background-color: rgba(3, 35, 49, 0.93);
+}
+.header-img{
+  margin-top: 20%;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-#test1{
-  display: none;
+/* Track */
+::-webkit-scrollbar-track {
+  background: #000000;
 }
-#test2{
-  display: none;
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: grey;
 }
-  /* width */
-  ::-webkit-scrollbar {
-    width: 10px;
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(0, 0, 0);
+}
+
+#showcase{
+  /*background-image: url("https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80");*/
+  background-image: url("https://images.squarespace-cdn.com/content/v1/576dd20320099e977d08446c/1469491216652-V8B28ZIGOYZPDITOKIS2/Homepage-Back-3.jpg?format=1500w");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+#showcase .overlay{
+  margin-top: 4%;
+  color: white;
+  background-color: rgba(12, 12, 12, 0.52);
+}
+
+
+@media (max-width: 768px) {
+  .carousel-inner .carousel-item > div {
+    display: none;
   }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #000000;
+  .carousel-inner .carousel-item > div:first-child {
+    display: block;
   }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: grey;
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+  display: flex;
+}
+
+/* display 3 */
+@media (min-width: 768px) {
+
+  .carousel-inner .carousel-item-right.active,
+  .carousel-inner .carousel-item-next {
+    transform: translateX(33.333%);
   }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgb(0, 0, 0);
+
+  .carousel-inner .carousel-item-left.active,
+  .carousel-inner .carousel-item-prev {
+    transform: translateX(-33.333%);
   }
+}
+
+.carousel-inner .carousel-item-right,
+.carousel-inner .carousel-item-left{
+  transform: translateX(0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 @media only screen and (max-width: 1000px) {
-    .qv {
-      padding: 0%;
-    }
+  .qv {
+    padding: 0%;
   }
 
-  @media only screen and (device-width: 280px) and (device-height: 653px) and (orientation:portrait) {
-    .buy-btn{width: 180px;}
-    .sell-btn{width: 180px;margin-top: 10px;}
-    .qv{padding: 0;}
+}
+@media all and (max-width: 1024px){
+  .header-img{
+    margin-top: 0;
   }
-  @media only screen and (device-width: 320px) and (device-height: 634px) and (orientation:portrait) {
-    .buy-btn{width: 180px;}
-    .sell-btn{width: 180px;margin-top: 10px;}
+}
+
+/*iphone-5s*/
+@media all and (device-width: 320px) and (device-height: 568px){
+  .overlay{
+    width: 90vw;
+    margin-left: -22%;
+    text-align: justify;
   }
-  @media only screen and (device-width: 1366px) and (device-height: 768px) {
-    .qv{
-      padding: 0%;
-    }
-    .queenvillaText{
-      padding: 6%;
-    }
-    .perks{
-      max-width: 1250px;
-    }
+}
+@media all and (device-height: 640px){
+  .overlay{
+    width: 90vw;
+    margin-left: -18%;
   }
+}
+
+@media only screen and (device-width: 280px) and (device-height: 653px) and (orientation:portrait) {
+  .buy-btn{width: 180px;}
+  .sell-btn{width: 180px;margin-top: 10px;}
+  .qv{padding: 0;}
+  .header-img{margin: 0}
+}
+@media only screen and (device-width: 320px) and (device-height: 634px) and (orientation:portrait) {
+  .buy-btn{width: 180px;}
+  .sell-btn{width: 180px;margin-top: 10px;}
+  .header-img{margin: 0}
+}
+@media only screen and (device-width: 1366px) and (device-height: 768px) {
+  .qv{
+    padding: 0%;
+  }
+  .queenvillaText{
+    padding: 6%;
+  }
+  .perks{
+    max-width: 1250px;
+  }
+  .header-img{
+
+  }
+}
