@@ -1,5 +1,20 @@
-<h3>Password reset complete</h3>
+{% extends "base.html" %}
+{% load static %}
+<!--  mandatory for css -->
+{% block base_head %}
+<link rel="stylesheet" href="/static/css/reset_password.css">
+{% endblock %}
 
-<p>Your password has been set. You may go ahead and log in now.</p>
+{% block content %}
 
-<a href="/">Log in</a>
+<div class="content_pass">
+
+    <h3>Password Updated!</h3>
+    <i class="fas fa-check-circle icon"></i>
+    <p>Your password has been set. You may go ahead and log in now.</p>
+
+    <a href="/" class="btn btn-outline-success login_btn">Log in</a>
+
+</div>
+
+{% endblock %}
