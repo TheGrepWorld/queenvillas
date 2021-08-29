@@ -1,0 +1,52 @@
+{% load static %}
+{% block base_head %}
+    <link rel="stylesheet" href="/static/css/home_page.css?{% now 'U' %}">
+
+
+{% endblock %}
+
+
+<div class="m-4">
+    <form method="GET" action="{% url "residential:residentiallistingHome" %}" id="test">
+{#        {{ form.bhks }}#}
+        <div class="fieldWrapper">
+    {{ form.bhks.errors }}
+    <label for="{{ form.bhks.id_for_label }}"  style="background: none;color:black;"><b>Bedrooms:</b></label>
+    {{ form.bhks }}<br>
+</div>
+                <div class="fieldWrapper">
+    {{ form.price.errors }}
+    <label for="{{ form.price.id_for_label }}"  style="background: none;color:black;"><b>Price Range:</b></label>
+    {{ form.price }}<br>
+</div>
+{#        <p>Bedrooms</p>#}
+{#        <div id="bhks">#}
+{#            <input id="2bhk" type="radio" name="bhk" value="2" onchange="location = finalurl();">#}
+{#            2BHK<br>#}
+{#            <input id="3bhk" type="radio" name="bhk" value="3" onchange="location = finalurl1();" >#}
+{#            3BHK<br>#}
+{#            <input id="4bhk" type="radio" name="bhk" value="4" onchange="location = finalurl2();">#}
+{#            4BHK<br>#}
+{#            <input id="5bhk" type="radio" name="bhk" value="4" onchange="location = finalurl3();"> 5BHK#}
+{#        </div>#}
+{##}
+{#        <p>Price Range</p>#}
+{#        <input type="radio" id="rang1" name="range" value="1000000-5000000">#}
+{#        <label for="range1">10,00,000 - 50,00,000</label><br>#}
+{#        <input type="radio" id="range2" name="range" value="5000000-8000000">#}
+{#        <label for="range2">50,00,000 - 80,00,000</label><br>#}
+{#        <input type="radio" id="range3" name="range" value="8000000-10000000">#}
+{#        <label for="range3">80,00,000 - 1,00,00,000</label><br><br>#}
+{##}
+{#        <p>Amenities</p>#}
+{#        <input type="checkbox" id="amenity1" name="amenities" value="Park Facing" class="myclass">#}
+{#        <label for="amenity1">Park Facing</label><br>#}
+{#        <input type="checkbox" id="amenity2" name="amenities" value="Extra Parking Space" class="myclass">#}
+{#        <label for="amenity2"> Extra Parking Space</label><br>#}
+{#        <input type="checkbox" id="amenity3" name="amenities" value="Swimming Pool" class="myclass">#}
+{#        <label for="amenity3"> Swimming Pool </label><br><br>#}
+
+
+        <button type="submit" value="Submit" class="btn btn-outline-danger"> Clear all filters</button>
+    </form>
+</div>

@@ -23,11 +23,11 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home_page,name="home"),
-    path('listings/', include('listings.urls')),
     path('residential/', include(("residential.urls", "residential"), namespace='residentials')),
     path('signup', handle_signup, name="signup"),
     path('login', handle_login, name="login"),
     path('logout', handle_logout, name="logout"),
+    path('search/', include(("search.urls","search"),namespace="search")),
     path('reset_password',auth_views.PasswordResetView.as_view(template_name='reset_password.html'),name="reset_password"),
     path('reset_password_sent',auth_views.PasswordResetDoneView.as_view(template_name='pwd_reset_sent.html'),name="password_reset_done"),
     path('reset/<uidb64>/<token>',auth_views.PasswordResetConfirmView.as_view(template_name='pwd_reset_view.html'),name='password_reset_confirm'),

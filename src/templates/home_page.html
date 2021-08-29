@@ -67,71 +67,7 @@
     </div>
 </div>
 
-
-
-
-
-{#SEARCH CARD#}
-    <section id="showcase">
-        <div class="container text-center position-relative">
-            <div class="home-search p-5">
-                <div class="overlay p-5">
-                    <h1 class="display-4 mb-4">
-                        Property Searching Just Got So Easy
-                    </h1>
-                    <p class="lead ">Search from a wide variety of listings that fits best for you, there are no restrictions, search as
-                        per your needs. Your dream home is just a click away</p>
-                    <div class="search">
-                        <form action="search.html">
-                            <!-- Form Row 1 -->
-                            <div class="row">
-                                <div class="col-md-4 mb-3">
-                                    <label class="sr-only">Keywords</label>
-                                    <input type="text" name="keywords" class="form-control" placeholder="Keyword (Pool, Garage, etc)">
-                                </div>
-
-                                <div class="col-md-4 mb-3">
-                                    <label class="sr-only">City</label>
-                                    <input type="text" name="city" class="form-control" placeholder="Chandigarh">
-                                </div>
-
-                                <div class="col-md-4 mb-3">
-                                    <label class="sr-only">Sector</label>
-                                    <select name="state" class="form-control">
-                                        <option value="s-43">Sector 43</option>
-                                        <option value="s-17" selected>Sector 17</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <!-- Form Row 2 -->
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label class="sr-only">Bedrooms</label>
-                                    <select name="bedrooms" class="form-control">
-                                        <option value="3" selected>3 Bedrooms</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <select name="price" class="form-control" id="type">
-                                        <option selected="true" disabled="disabled">Max Price (Any)</option>
-                                        <option value="3000000"> &#8377 20,00,000 - &#8377 30,00,000</option>
-                                        <option value="4000000" selected>&#8377 30,00,000 - &#8377 40,00,000</option>
-                                        <option value="5000000">&#8377 40,00,000 - &#8377 50,00,000</option>
-                                        <option value="400000">&#8377 50,00,000 - &#8377 80,00,000</option>
-                                        <option value="500000">&#8377 80,00,000 - &#8377 1,00,00,000</option>
-                                        <option value="600000">&#8377 1,00,00,000 - &#8377 5,00,00,000</option>
-                                        <option value="700000">&#8377 5,00,00,000 - &#8377 10,00,00,000</option>
-                                        <option value="800000">&#8377 10,00,00,000 and above</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <button class="btn btn-danger btn-block mt-4" type="submit">Search Properties</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  {% include 'search/snippets/search-form.html' %}
 
     <div class="container text-center my-3">
         <h2 class="font-weight-light">Bootstrap 4 - Multi Item Carousel</h2>
@@ -218,5 +154,8 @@
                 next.children(':first-child').clone().appendTo($(this));
             }
         });
+
+
     </script>
+
 {% endblock %}

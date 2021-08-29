@@ -45,8 +45,16 @@ body{
   color: white;
   background-color: rgba(12, 12, 12, 0.52);
 }
-
-
+#id_bhks {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+#id_price{
+      list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
 @media (max-width: 768px) {
   .carousel-inner .carousel-item > div {
     display: none;

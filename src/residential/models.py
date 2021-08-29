@@ -10,19 +10,21 @@ User = settings.AUTH_USER_MODEL
 
 # Create your models here.
 proprty_sr = (('sell', 'SELL'), ('rent', 'RENT'), ('pg', 'PG'))
-property_type = (('ap', 'APARTMENT'), ('kothi', 'KOTHI'), ('ih', 'INDEPENDENT HOUSE/VILLA'), ('plot', 'PLOT'),
-                 ('sa', 'STUDIO APARTMENT'), ('other', 'OTHER'))
+property_type = (
+('ap', 'APARTMENT'), ('kothi', 'KOTHI'), ('ih', 'INDEPENDENT HOUSE/VILLA'), ('plot', 'PLOT'), ('flat', 'Flat'),
+('sa', 'STUDIO APARTMENT'), ('other', 'OTHER'))
 furnish_type = (('furnished', 'FURNISHED'), ('semi', 'SEMI-FURNISHED'), ('un', 'UNFURNISHED'))
 av_status = (('uc', 'UNDER CONSTRUCTION'), ('rm', 'READY TO MOVE'))
 arrea_units = (('feet', 'sq.ft'), ('yards', 'yards'))
-possession_type = (('ready to move','Ready To Move'),('within 2 months','Within 2 Months'),('within 3 months','Within 3 Months'))
+possession_type = (
+('ready to move', 'Ready To Move'), ('within 2 months', 'Within 2 Months'), ('within 3 months', 'Within 3 Months'))
+
 
 class Amenity(models.Model):
     amenity = models.CharField(max_length=500)
 
     def __str__(self):
         return self.amenity
-
 
 
 class OtherRooms(models.Model):
@@ -39,13 +41,37 @@ class ResidentialQuerySet(models.query.QuerySet):
     def active(self):
         return self.filter(active=True)
 
-    def search(self, query1,query2,query3,query4,query5,query6):
-        lookups=(Q(amenities__amenity__icontains=query1) & Q(city__icontains=query2) &
-                 Q(locality__icontains=query3)
-                 & Q(bedrooms__gt=query4)
-                 & Q(expected_price__gt=query5) & Q( expected_price__lt=query6))
+    def search(self, query1, query2, query3, query4, query5, query6):
+        if query5 is None:
+            query5 = 0
+        if query6 is None:
+            query6 = 0
+        if query5 == '0':
+            lookups = (Q(property_type__icontains=query1) & Q(city__icontains=query2) &
+                       Q(locality__icontains=query3)
+                       & Q(bedrooms__gte=query4)
+                       & Q(expected_price__lte=query6))
+        if query6 == '0':
+            lookups = (Q(property_type__icontains=query1) & Q(city__icontains=query2) &
+                       Q(locality__icontains=query3)
+                       & Q(bedrooms__gte=query4)
+                       & Q(expected_price__gte=query5))
+        if query1 == 'all':
+            lookups = (Q(city__icontains=query2) &
+                       Q(locality__icontains=query3)
+                       & Q(bedrooms__gte=query4)
+                       & Q(expected_price__gte=query5) & Q(expected_price__lte=query6))
+        else:
+            lookups = (Q(property_type__icontains=query1) & Q(city__icontains=query2) &
+                       Q(locality__icontains=query3)
+                       & Q(bedrooms__gte=query4)
+                       & Q(expected_price__gte=query5) & Q(expected_price__lte=query6))
+
         print("lookup= ", lookups)
         return self.filter(lookups).distinct()
+
+    def filtering(self, filter1):
+        return self.active()
 
 
 class ResidentialManager(models.Manager):
@@ -64,8 +90,11 @@ class ResidentialManager(models.Manager):
             return qs.first()
         return None
 
-    def search(self, query1,query2,query3,query4,query5,query6):
-        return self.get_queryset().active().search(query1,query2,query3,query4,query5,query6)
+    def search(self, query1, query2, query3, query4, query5, query6):
+        return self.get_queryset().active().search(query1, query2, query3, query4, query5, query6)
+
+    def filtering(self, filter1):
+        return self.get_queryset().active().filter(filter1)
 
 
 class ResidentialDetails(models.Model):
@@ -81,7 +110,7 @@ class ResidentialDetails(models.Model):
     dim_length = models.IntegerField(null=True, blank=True)
     dim_breadth = models.IntegerField(null=True, blank=True)
     floors = models.IntegerField()
-    possession = models.CharField(max_length=255, choices=possession_type,default='none')
+    possession = models.CharField(max_length=255, choices=possession_type, default='none')
     bedrooms = models.IntegerField()
     bathrooms = models.IntegerField()
     balconies = models.IntegerField(null=True, blank=True)
@@ -96,8 +125,8 @@ class ResidentialDetails(models.Model):
     price_per_marla = models.IntegerField(null=True, blank=True)
     description = models.TextField()
     slug = models.SlugField(max_length=100, unique=True, blank=True)
-    active=models.BooleanField(default=True)
-    featured=models.BooleanField(default=False)
+    active = models.BooleanField(default=True)
+    featured = models.BooleanField(default=False)
     user = models.ForeignKey(User,
                              default=1,
                              null=True,
