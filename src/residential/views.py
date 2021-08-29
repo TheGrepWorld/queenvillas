@@ -30,21 +30,38 @@ def ResidentialListView(request):
     filter_form = Filterform
     price = request.GET.get('price')
     selected_bhk = 0
-    if bedrooms:
+    if bedrooms and price is None:
         print("in if bedromms")
         object_list = ResidentialDetails.objects.filter(bedrooms__iexact=bedrooms)
-    if price:
+    if price and bedrooms is None:
         print("in if price")
-        if price=='3000000':
+        if price == '3000000':
             object_list = ResidentialDetails.objects.filter(expected_price__lte=price)
-        if price== '5000000':
+        if price == '5000000':
             print(price)
-            object_list = ResidentialDetails.objects.filter(expected_price__lte=price).filter(expected_price__gte=3000000)
+            object_list = ResidentialDetails.objects.filter(expected_price__lte=price).filter(
+                expected_price__gte=3000000)
         if price == '10000000':
             print(price)
-            object_list = ResidentialDetails.objects.filter(expected_price__lte=price).filter(expected_price__gte=5000000)
+            object_list = ResidentialDetails.objects.filter(expected_price__lte=price).filter(
+                expected_price__gte=5000000)
         if price == '100000001':
             object_list = ResidentialDetails.objects.filter(expected_price__gte='10000000')
+    if price and bedrooms:
+        print("in b and p")
+        if price == '3000000':
+            object_list = ResidentialDetails.objects.filter(expected_price__lte=price).filter(bedrooms__iexact=bedrooms)
+        if price == '5000000':
+            print(price)
+            object_list = ResidentialDetails.objects.filter(expected_price__lte=price).filter(
+                expected_price__gte=3000000).filter(bedrooms__iexact=bedrooms)
+        if price == '10000000':
+            print(price)
+            object_list = ResidentialDetails.objects.filter(expected_price__lte=price).filter(
+                expected_price__gte=5000000).filter(bedrooms__iexact=bedrooms)
+        if price == '100000001':
+            object_list = ResidentialDetails.objects.filter(expected_price__gte='10000000').filter(
+                bedrooms__iexact=bedrooms)
     else:
         selected_bhk = 0
         print("kuch toh gadbad hai ")
@@ -55,20 +72,6 @@ def ResidentialListView(request):
         "filter_form": filter_form
     }
     return render(request, "residentials/list.html", context)
-
-
-# class ResidentialListView(ListView):
-#     template_name = "residentials/list.html"
-#     paginate_by = 24
-#
-#     def get_context_data(self, *args, **kwargs):
-#         context = super(ResidentialListView, self).get_context_data(*args, **kwargs)
-#         request = self.request
-#         return context
-#
-#     def get_queryset(self, *args, **kwargs):
-#         request = self.request
-#         return ResidentialDetails.objects.all()
 
 
 def get_filter_data(request):
