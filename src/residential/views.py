@@ -26,14 +26,14 @@ def add_image(request):
 
 def ResidentialListView(request):
     bedrooms = request.GET.get('bedrooms')
-    print(bedrooms)
     filter_form = Filterform
     price = request.GET.get('price')
     selected_bhk = 0
-    if bedrooms and price is None:
-        print("in if bedromms")
+    if bedrooms is not None and price is None:
+        print("in if bedromms", bedrooms)
         object_list = ResidentialDetails.objects.filter(bedrooms__iexact=bedrooms)
-    if price and bedrooms is None:
+
+    elif price is not None and bedrooms is None:
         print("in if price")
         if price == '3000000':
             object_list = ResidentialDetails.objects.filter(expected_price__lte=price)
@@ -47,7 +47,7 @@ def ResidentialListView(request):
                 expected_price__gte=5000000)
         if price == '100000001':
             object_list = ResidentialDetails.objects.filter(expected_price__gte='10000000')
-    if price and bedrooms:
+    elif price is not None and bedrooms is not None:
         print("in b and p")
         if price == '3000000':
             object_list = ResidentialDetails.objects.filter(expected_price__lte=price).filter(bedrooms__iexact=bedrooms)
