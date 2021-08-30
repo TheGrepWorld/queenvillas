@@ -8,6 +8,12 @@
     color: rgb(104, 90, 235);
 
 }
+.free-tag{
+  margin-left: 82px;
+  margin-top: 0px;
+  /*transform: rotate(-10deg);*/
+}
+
 
 
 @media only screen and (min-width: 200px) and (max-width: 990px){

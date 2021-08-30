@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'account',
     'residential',
     'search',
-    'crispy_forms',
 
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

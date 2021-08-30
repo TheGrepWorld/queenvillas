@@ -1,15 +1,99 @@
 {% block base_head %}
-
+    <link rel="stylesheet" href="/static/css/listingCard.css?{% now 'U' %}">
 {% endblock %}
-<div>
+{#<div>#}
+{##}
+{#<div class="card" style="width: 18rem;">#}
+{#  <img class="card-img-top" src="{{ instance.image.url }}" alt="Card image cap">#}
+{#  <div class="card-body">#}
+{#    <h5 class="card-title">{{ instance.title }}</h5>#}
+{#    <p class="card-text">{{ instance.description }}</p>#}
+{##}
+{#    <a href="#" class="btn btn-primary">Go somewhere</a>#}
+{#  </div>#}
+{#</div>#}
+{#</div>#}
 
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="{{ instance.image.url }}" alt="Card image cap">
-  <div class="card-body">
-      <a href="{{ instance.get_absolute_url }}"> <h5 class="card-title">{{ instance.title }}</h5></a>
-    <p class="card-text">{{ instance.description }}</p>
+<div class="container mt-4">
+    <div class="row">
+{#        <div class="col-lg-2"></div>#}
+        <div class="col-lg-8 listing-card">
+            <div class="row">
+                <div class="col-3 img-cont">
+                    <img class="img-fluid card-prop-img" src={{ instance.image.url }}>
+                </div>
+                <div class="col-9 prop-desc-cont">
+                    <div class="row price-row">
+                        <div class="col-7 price-col d-flex">
+                            <h3 class="rupee-symbol">&#8377 <span id="prop-price">{{ instance.expected_price}}</span></h3>
+                            <span class="per-sqft">&#8377 7,552 / square feet</span>
+                        </div>
+                        <div class="col-2 verified-img-div">
+                            <img class="verified-img" width="60" src="/static/img/verified.png">
+                        </div>
+                    </div>
 
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
+                    <h6 class="prop-title">{{ instance.title }}</h6>
+
+                    <div class="row mt-2 amenities-row">
+                        <div class="col-lg-4 col-4 amen-col">
+                            Carpet Area: {{ instance.area }} sq.ft.
+                        </div>
+                        <div class="col-lg-3 col-3 amen-col">
+                            Bedroom(s): {{ instance.bedrooms }}
+                        </div>
+                        <div class="col-lg-4 col-3 amen-col">
+                            Bathroom(s): {{ instance.bathrooms }}
+                        </div>
+                    </div>
+                    <div class="mobile-view-upper">
+                        {% if instance.possession  == "ready to move" %}
+                            <h6 class="mt-2 bg-success p-1 text-white possession-text">{{ instance.possession }}</h6>
+                        {% else %}
+                            <h6 class="mt-2 bg-warning p-1 possession-text">{{ instance.possession }}</h6>
+                        {% endif %}
+
+                        <p class="prop-address">{{ instance.locality }}, {{ instance.sub_locality }}, {{ instance.city }}</p>
+
+                        <div class="owner-div">
+                            <button class="btn btn-danger btn-contact-us">Contact Us</button>
+                            <button class="btn btn-outline-danger btn-view-details">View Details</button>
+                        </div>
+                        <p class="owner-details">Posted by {{ instance.user }}</p>
+                    </div>
+                </div>
+
+                <div class="possession-div lower d-lg-none d-md-none d-xl-none">
+                    {% if instance.possession  == "ready to move" %}
+                        <span class=" bg-success p-1 text-white possession-text mb-4">{{ instance.possession }}</span>
+                    {% else %}
+                        <h6 class=" bg-warning p-1 possession-text mb-4">{{ instance.possession }}</h6>
+                    {% endif %}
+                </div>
+
+                <div class="container-fluid mobile-view-lower d-lg-none d-md-none d-xl-none">
+                    <p class="prop-address">{{ instance.locality }}, {{ instance.sub_locality }}, {{ instance.city }}</p>
+                    <button class="btn btn-danger btn-contact-us-lower">Contact Us</button>
+                    <button class="btn btn-outline-danger btn-view-details-lower">View Details</button>
+                    <p class="owner-details d-lg-none d-md-none d-xl-none">Posted by {{ instance.user }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
+
+
+{% block javascript  %}
+{#    <script>#}
+{##}
+{#        var x={{ instance.expected_price}};#}
+{#        x=x.toString();#}
+{#        var lastThree = x.substring(x.length-3);#}
+{#        var otherNumbers = x.substring(0,x.length-3);#}
+{#        if(otherNumbers != '')#}
+{#            lastThree = ',' + lastThree;#}
+{#        var res = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;#}
+{#        document.getElementById("prop-price").innerHTML = res;#}
+{##}
+{#    </script>#}
+{% endblock %}
