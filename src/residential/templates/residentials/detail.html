@@ -115,7 +115,34 @@
                 </div>
 
                 <div class="book-visit">
-                    <a class="btn btn-outline-danger" href="#">Book a Visit</a>
+                    <a class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Book a Visit</a>
+                </div>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content book-visit-modal">
+                            <div class="modal-header remove-border">
+                                <h5 class="modal-title" id="exampleModalLabel">Enter details,<br>to Book your Visit</h5>
+                                <button type="button" style="color: #dc3545; font-weight: bold" class="btn" data-bs-dismiss="modal" aria-label="Close">X</button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="name_input_div">
+                                        <input type="text" class="name_input" id="name_input" >
+                                        <span onclick="focusOnElement('name_input')">Full Name*</span>
+                                    </div>
+                                    <div class="name_input_div">
+                                        <input type="number" class="phone_input" maxlength="10" id="phone_input">
+                                        <p style="color: black">+91</p>
+                                        <span class="mobile_placeholder" onclick="focusOnElement('phone_input')" id="mobile_input">Mobile No*</span>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer remove-border">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-outline-danger" style="color: white; border-color: #dc3545;">Book a Visit</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -328,6 +355,11 @@
             document.getElementById('money').innerHTML = res;
             document.getElementById('money2').innerHTML = res;
         });
+
+        function focusOnElement(id){
+            document.getElementById(id).focus();
+        }
+
     </script>
 
 {% endblock %}
