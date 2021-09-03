@@ -1,0 +1,15 @@
+{% block base_head %}
+
+{% endblock %}
+<div>
+
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{ instance.main_image.url }}" alt="Card image cap">
+  <div class="card-body">
+      <a href="{{ instance.get_absolute_url }}"> <h5 class="card-title">{{ instance.title }}</h5></a>
+    <p class="card-text">{{ instance.description }}</p>
+<p>{{ instance.expected_price }}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+</div>

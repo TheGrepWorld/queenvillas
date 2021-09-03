@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <h1>Commercial listing Page</h1>
+<h3 class="text-center" id="filter-section"></h3>
+    <div class="col">
+
+        <div class='row'>
+            <div class="col-3">
+                {% include 'commercial/commercial-filter.html' with sb=selected_bhk form=filter_form %}
+            </div>
+            {% for obj in object_list %}
+                <div class='col-6'>
+                    {% include 'commercial/card.html' with instance=obj %}
+
+                </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+{% endblock %}
+{% block javascript %}
+    <script>
+
+        function finalurl(type) {
+            window.location.href.replace(window.location.search, '');
+            console.log("chlja plz", type)
+            var url = new URL(window.location.href);
+            console.log(url)
+            var search_params = url.searchParams;
+            console.log(search_params)
+            {#search_params.set('bedrooms', document.getElementById("id_bhks_0").value);#}
+            search_params.set('type', type);
+            url.search = search_params.toString();
+            console.log(url.search)
+            var new_url = url.toString();
+            return new_url
+        }
+
+        function finalurl1(price) {
+            window.location.href.replace(window.location.search, '');
+            console.log("chlja plz", price)
+            var url = new URL(window.location.href);
+            console.log(url)
+            var search_params = url.searchParams;
+            console.log(search_params)
+            {#search_params.set('bedrooms', document.getElementById("id_bhks_0").value);#}
+            search_params.set('price', price);
+            url.search = search_params.toString();
+            console.log(url.search)
+            var new_url = url.toString();
+            return new_url
+        }
+    </script>
+    <script type="text/javascript" src="/static/js/list-resi.js"></script>
+{% endblock %}

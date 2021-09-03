@@ -1,0 +1,30 @@
+{% load static %}
+{% block base_head %}
+    <link rel="stylesheet" href="/static/css/home_page.css?{% now 'U' %}">
+
+
+{% endblock %}
+
+
+<div class="m-4">
+    <form method="GET" action="{% url "residential:residentiallistingHome" %}" id="test">
+        <div class="fieldWrapper">
+            {{ form.type.errors }}
+            <label for="{{ form.type.id_for_label }}" style="background: none;color:black;"><b>Property Type:</b></label>
+            {{ form.type }}<br>
+        </div>
+        <div class="fieldWrapper">
+            {{ form.price.errors }}
+            <label for="{{ form.price.id_for_label }}" style="background: none;color:black;"><b>Price Range:</b></label>
+            {{ form.price }}<br>
+        </div>
+
+        <div class="fieldWrapper">
+            {{ form.proprty_srt.errors }}
+            <label for="{{ form.proprty_srt.id_for_label }}" style="background: none;color:black;"><b>Buy or Rent ?</b></label>
+            {{ form.proprty_srt }}<br>
+        </div>
+
+        <a class="btn btn-outline-danger" href="{% url 'commercial:commerciallistingHome' %}"> Clear all filters</a>
+    </form>
+</div>
