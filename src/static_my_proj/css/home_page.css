@@ -14,22 +14,23 @@ body{
 }
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
-}
+  width: 9px;
 
+}
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: rgba(0, 0, 0, 0.75);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: grey;
+  border-radius: 18px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(0, 0, 0);
+  background: #c2bebe;
 }
 
 #showcase{
@@ -88,25 +89,6 @@ body{
 .carousel-inner .carousel-item-left{
   transform: translateX(0);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

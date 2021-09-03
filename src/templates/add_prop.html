@@ -238,17 +238,242 @@
 
 
                 {# section -4 #}
-                <div class="post_box_dashed dashed-1">
-                    <h3 class="pb-4">More information about your property</h3>
-                    <div class="prop_desc_div">
-                        <div>
-                            <div class="prop_desc_div_inner d-flex">
-                                <textarea class="prop_desc_textarea" type="text" name="description" required="" rows="5"></textarea>
-                                <label class="d99ta8-6 eWlKbh pA" for="description">About property (Min 30 characters)*</label>
+                <div class="post_box_dashed">
+                    <h6>More information about your property</h6>
+                    <div class="inner_div">
+                        <div class="tarea_div">
+                            <div class="text_input_div">
+                                <textarea class="text_input" type="text" id="desc_input" name="description" required="" rows="6"></textarea>
+                                <label class="text_input_label" for="description" onclick="focusOnElement('desc_input')">Describe your property (min 30 words)*</label>
                             </div>
                         </div>
                     </div>
 
+                    <div class="prop_floors_div">
+                        <div class="prop_floors_inner_div">
+                            <div class="prop_floors_inputs_div">
+                                <div class="prop_floors_inputs">
+                                    <label>Property on floor*</label>
+                                    <input type="number" class="prop_floor_input_field" min="1">
+                                </div>
+                                <div class="prop_floors_inputs">
+                                    <label>Total floors*</label>
+                                    <input type="number" class="prop_floor_input_field" min="1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="post_type_div pt-4">
+                        <span class="">Furnishing</span>
+                        <div class="post_options_outer pt-1">
+                            <div class="post_options_inner">
+                                <label>
+                                    <input class="post_option_input" type="radio" name="postType" value="FULLYFURNISHED" >
+                                    <span class="post_option_item">Fully&nbsp;Furnished</span>
+                                </label>
+                                <label>
+                                    <input class="post_option_input" type="radio" name="postType" value="SEMIFURNISHED" >
+                                    <span class="post_option_item">Semi&nbsp;Furnished</span>
+                                </label>
+                                <label>
+                                    <input class="post_option_input" type="radio" name="postType" value="UNFURNISHED" >
+                                    <span class="post_option_item">Unfurnished</span>
+                                </label>
+                                <label>
+                                    <input class="post_option_input" type="radio" name="postType" value="OTHER" >
+                                    <span class="post_option_item">Other</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="post_type_div pt-2">
+                        <span class="">Number Of Bathrooms</span>
+                        <div class="post_options_outer pt-1">
+                            <div class="post_options_inner">
+                                <label>
+                                    <input class="post_option_input" type="radio" name="postType" value="0" >
+                                    <span class="post_option_item">0</span>
+                                </label>
+                                <label>
+                                    <input class="post_option_input" type="radio" name="postType" value="1" >
+                                    <span class="post_option_item">1</span>
+                                </label>
+                                <label>
+                                    <input class="post_option_input" type="radio" name="postType" value="2" >
+                                    <span class="post_option_item">2</span>
+                                </label>
+                                <label>
+                                    <input class="post_option_input" type="radio" name="postType" value="3+" >
+                                    <span class="post_option_item">3+</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="select_outer_div mt-3 mb-4">
+                        <div class="select_inner_div w-50">
+                            <span class="text-grey">Number of balconies</span>
+                            <select class="form-select mt-2 select_padding" aria-label="Default select example">
+                                <option value="1" class="color_black">1</option>
+                                <option value="2" class="color_black">2</option>
+                                <option value="3" class="color_black">3</option>
+                                <option value="4+" class="color_black">4+</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="amen_outer">
+                        <div class="amen_inner_top d-flex">
+                            <div class="amen_left_search_div">
+                                <span class="search_icon_amen"><i class="fa fa-search"></i></span>
+                                <input class="search_input" id="search_amen_input" type="text" placeholder="Type or select amenities..." onkeyup="filterFunc()" onclick="emptyInput()">
+                            </div>
+{#                            <button type="button" class="btn btn-outline-warning add_amen_button">Add</button>#}
+                        </div>
+                        <div class="amen_inner_bottom">
+                            <div class="amen_left_area" id="amen_left_area">
+                                <div class="heading_div">
+                                    <span id="no_content_placeholder">You have not selected anything</span>
+                                </div>
+                                <div class="amen_selected_div">
+                                    <div class="container">
+                                        <div class="row" id="amen_selected_div">
+{#                                            <div class="col-4 div_item">#}
+{#                                                <span>column -1</span>#}
+{#                                            </div>#}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="amen_right">
+                                <div class="amen_right_checkboxes" id="amen_list">
+                                    <div class="pb-2">
+                                        <input type="checkbox" id="Club House" name="Club House" onclick='handleClick(this)'>
+                                        <span class="checkbox_spans" id="checkbox_item">Club House</span>
+                                    </div>
+                                    <div class="pb-2">
+                                        <input type="checkbox" id="Parking" name="Parking" onclick='handleClick(this)'>
+                                        <span class="checkbox_spans" id="checkbox_item">Parking</span>
+                                    </div>
+                                    <div class="pb-2">
+                                        <input type="checkbox" id="24hr water supply" name="24hr water supply" onclick='handleClick(this)'>
+                                        <span class="checkbox_spans" id="checkbox_item">24hr water supply</span>
+                                    </div>
+                                    <div class="pb-2">
+                                        <input type="checkbox" id="Gym" name="Gym" onclick='handleClick(this)'>
+                                        <span class="checkbox_spans" id="checkbox_item">Gym</span>
+                                    </div>
+                                    <div class="pb-2">
+                                        <input type="checkbox" id="Lift" name="Lift" onclick='handleClick(this)'>
+                                        <span class="checkbox_spans" id="checkbox_item">Lift</span>
+                                    </div>
+                                    <div class="pb-2">
+                                        <input type="checkbox" id="24hr Electricity supply" name="24hr Electricity supply" onclick='handleClick(this)'>
+                                        <span class="checkbox_spans" id="checkbox_item">24hr Electricity supply</span>
+                                    </div>
+                                    <div class="pb-2">
+                                        <input type="checkbox" id="Cafeteria" name="Cafeteria" onclick='handleClick(this)'>
+                                        <span class="checkbox_spans" id="checkbox_item">Cafeteria</span>
+                                    </div>
+                                    <div class="pb-2">
+                                        <input type="checkbox" id="Park" name="Park" onclick='handleClick(this)'>
+                                        <span class="checkbox_spans" id="checkbox_item">Park</span>
+                                    </div>
+{#                                    <div class="pb-2">#}
+{#                                        <input type="checkbox" id="checkbox_input">#}
+{#                                        <span class="checkbox_spans" id="checkbox_item">Park</span>#}
+{#                                    </div>#}
+{#                                    <div class="pb-2">#}
+{#                                        <input type="checkbox" id="checkbox_input">#}
+{#                                        <span class="checkbox_spans" id="checkbox_item">Park</span>#}
+{#                                    </div>#}
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bottom_bottom">
+                            <span>NOTE: Click on Element or uncheck selected items to remove amenities</span>
+                        </div>
+                    </div>
+
+                    <div class="select_outer_div mt-4">
+                        <div class="select_inner_div w-50">
+                            <span class="text-grey">Direction Facing</span>
+                            <select class="form-select mt-2 select_padding" aria-label="Default select example">
+                                <option value="North" class="color_black">North</option>
+                                <option value="South" class="color_black">South</option>
+                                <option value="East" class="color_black">East</option>
+                                <option value="North-East" class="color_black">North-East</option>
+                                <option value="North=West" class="color_black">North-West</option>
+                                <option value="South-West" class="color_black">South-West</option>
+                                <option value="South-East" class="color_black">South-East</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                {# section -5 #}
+                <div class="post_box">
+                    <h3 class="pb-3" style="font-size: 1.25rem ">Your Details</h3>
+
+                    <div class="post_type_div">
+                        <span>You are*</span>
+                        <div class="post_options_outer">
+                            <div class="post_options_inner">
+                                <label>
+                                    <input class="post_option_input" type="radio" name="postType" value="SELL" >
+                                    <span class="post_option_item">Owner</span>
+                                </label>
+                                <label>
+                                    <input class="post_option_input" type="radio" name="postType" value="BUY" >
+                                    <span class="post_option_item">Agent</span>
+                                </label>
+                                <label>
+                                    <input class="post_option_input" type="radio" name="postType" value="RENT" >
+                                    <span class="post_option_item">Builder</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="owner_details_outer">
+                        <div class="name_input_outer">
+                            <div class="name_input_div">
+                                <input type="text" class="name_input" id="name_input" >
+                                <span onclick="focusOnElement('name_input')">Full Name*</span>
+                            </div>
+
+                            <div class="name_input_div mt-4">
+                                <input type="text" class="email_input" id="email_input">
+                                <span id="email_span" onclick="focusOnElement('email_input')">Email Address*</span>
+                            </div>
+
+                            <div class="name_input_div mt-4">
+                                <input type="number" class="phone_input" maxlength="10" id="phone_input">
+                                <p style="color: black">+91</p>
+                                <span class="mobile_placeholder" onclick="focusOnElement('phone_input')" id="mobile_input">Mobile No*</span>
+                            </div>
+                            <div class="bottom_bottom">
+                                <span>This mobile number will be used for further communication and stuff</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post_btn_outer">
+                        <div class="post_btn_inner">
+                            <button type="submit" class="btn btn-warning post_button">Post Ad Now</button>
+                        </div>
+                    </div>
+                    <div class="terms_outer">
+                        <p>By proceeding, you agree to our <a href="#">Terms of use</a> & <a href="#">Privacy Policy</a>
+
+                            To use the old form to list your property <a href="#">click here</a></p>
+                    </div>
                 </div>
 
             </form>
@@ -263,9 +488,25 @@
 
 {% block javascript  %}
     <script>
-        document.getElementById("rupee").style.display = "none";
-        document.getElementById("sale_price").style.paddingLeft = "20px";
-        document.getElementById('container').style.display = "none";
+        $(document).ready(function (){
+            $(".text_input_div .text_input").blur(function (){
+                if($(this).val()!==""){
+                    $(this).siblings("label").addClass("active");
+
+                }
+                else{
+                    $(this).siblings("label").removeClass("active");
+
+                }
+            });
+
+            document.getElementById("rupee").style.display = "none";
+            document.getElementById("sale_price").style.paddingLeft = "20px";
+            document.getElementById('container').style.display = "none";
+
+        });
+
+
         var images = [];
 
         <!-- this function will select images -->
@@ -330,20 +571,6 @@
             }
             return form;
         }
-        $("form").on("submit", function (e) {
-            e.preventDefault();
-            $.ajax({
-                url: "upload.php",
-                type: "POST",
-                processData: false,
-                contentType: false,
-                cache: false,
-                data: send_image_data(),
-                success: function (d) {
-                    console.log(d)
-                }
-            })
-        })
 
         function format_amount(){
             var x=document.getElementById("sale_price").value;
@@ -362,6 +589,93 @@
             document.getElementById("rupee").style.display = "flex";
             document.getElementById("sale_price").style.paddingLeft = "35px";
         }
+
+        function emptyInput() {
+           var input = document.getElementById("search_amen_input");
+            input.value = '';
+
+            var div = document.getElementById("amen_list");
+            spantext = div.getElementsByClassName("pb-2");
+
+            for(i=0;i<spantext.length;i++) {
+                spantext[i].style.display = '';
+            }
+        }
+
+        function filterFunc(){
+            var input, filtertext, div, spantext;
+
+            input = document.getElementById("search_amen_input");
+            filtertext = input.value.toUpperCase();
+            div = document.getElementById("amen_list");
+            spantext = div.getElementsByClassName("pb-2");
+
+            for (i = 0; i < spantext.length; i++) {
+                txtValue = spantext[i].textContent || spantext[i].innerHTML;
+                if (txtValue.toUpperCase().indexOf(filtertext) > -1) {
+                    spantext[i].style.display = "";
+                } else {
+                    spantext[i].style.display = "none";
+                }
+            }
+
+        }
+
+        var selected = [];
+
+
+        function removeItem(id){
+            document.getElementById(id+'_div').remove();
+            const index = selected.indexOf(id);
+
+            if (index > -1) {
+                selected.splice(index, 1);
+                document.getElementById(id).checked = false
+            }
+            if(selected.length === 0){
+                document.getElementById('no_content_placeholder').innerHTML = 'You have not selected anything';
+                document.getElementById('no_content_placeholder').style.color = 'red';
+            }
+            console.log(selected)
+        }
+
+        function handleClick(cb) {
+            if(!selected.includes(cb.name) && cb.checked){
+                selected.push(cb.name);
+                console.log(selected)
+                div = document.getElementById("amen_selected_div");
+                div_item = document.createElement("div");
+                div_item.setAttribute('class','div_item col-4');
+                div_item.setAttribute('id',cb.name+'_div');
+                div_item.setAttribute('onclick','removeItem( "'+cb.name+'" )');
+                span = document.createElement("span")
+                span.innerHTML = cb.name;
+                div_item.appendChild(span);
+                div.appendChild(div_item);
+                document.getElementById('no_content_placeholder').innerHTML = 'You have selected the following';
+                document.getElementById('no_content_placeholder').style.color = 'rgb(148, 147, 147)';
+            }
+            else{
+                console.log('unchecked')
+                const index = selected.indexOf(cb.name);
+                if (index > -1) {
+                    selected.splice(index, 1);
+                    document.getElementById(cb.name+'_div').remove();
+                }
+                if(selected.length === 0){
+                    document.getElementById('no_content_placeholder').innerHTML = 'You have not selected anything';
+                    document.getElementById('no_content_placeholder').style.color = 'red';
+                }
+                console.log(selected);
+
+            }
+        }
+
+        function focusOnElement(id){
+            document.getElementById(id).focus();
+        }
+
+
 
     </script>
 {% endblock %}
