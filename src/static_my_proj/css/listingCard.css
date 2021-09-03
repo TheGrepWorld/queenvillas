@@ -2,6 +2,10 @@
 /*    border: 1px solid black;*/
 /*    min-height: 500px;*/
 /*}*/
+
+
+
+
 .card-prop-img{
     width: 250px;
     height: 204px;
@@ -60,6 +64,7 @@
 .possession-text{
     width: 80px;
     font-size: 10px;
+    text-align: center;
 }
 .prop-address{
     font-size: 15px;
