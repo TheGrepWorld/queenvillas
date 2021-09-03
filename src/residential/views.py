@@ -11,29 +11,52 @@ from django.db.models import Q
 # from analytics.mixins import ObjectViewdMixin
 
 
+
+
 def add_property(request):
-    property_form = PropertyModelForm()
-    return render(request, 'add_prop.html', {'form': property_form})
+    print("if ke bahar")
+    if request.method == 'POST':
+        print("mei andar aagya")
+        list_for = request.POST['postType']
+        prop_type=request.POST['propertyType']
+        available_from =request.POST['available_from']
+        price=request.POST['sale_price']
+        descritpion=request.POST['description']
+        is_negotiable=request.POST['is_negotiable']
+
+        print(list_for,prop_type,available_from,price,descritpion,is_negotiable)
+        return render(request, "home_page.html")
+    else:
+        return render(request, 'residentials/add_prop.html')
 
 
 image_list = []
 
 
 def add_image(request):
-    if request.METHOD == 'POST':
+    if request.method == 'POST':
         image_list.append(request.POST['image'])
 
 
 def ResidentialListView(request):
     bedrooms = request.GET.get('bedrooms')
-    filter_form = Filterform
+    filter_form = Filterform()
     price = request.GET.get('price')
     selected_bhk = 0
     if bedrooms is not None and price is None:
         print("in if bedromms", bedrooms)
+        initial_dict = {
+            "bhks": bedrooms
+        }
+        filter_form = Filterform(initial=initial_dict)
         object_list = ResidentialDetails.objects.filter(bedrooms__iexact=bedrooms)
 
     elif price is not None and bedrooms is None:
+        initial_dict = {
+            "price": price
+
+        }
+        filter_form = Filterform(initial=initial_dict)
         print("in if price")
         if price == '3000000':
             object_list = ResidentialDetails.objects.filter(expected_price__lte=price)
@@ -48,6 +71,12 @@ def ResidentialListView(request):
         if price == '100000001':
             object_list = ResidentialDetails.objects.filter(expected_price__gte='10000000')
     elif price is not None and bedrooms is not None:
+        initial_dict = {
+            "price": price,
+            "bhks": bedrooms
+
+        }
+        filter_form = Filterform(initial=initial_dict)
         print("in b and p")
         if price == '3000000':
             object_list = ResidentialDetails.objects.filter(expected_price__lte=price).filter(bedrooms__iexact=bedrooms)
