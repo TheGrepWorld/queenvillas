@@ -13,13 +13,10 @@
   margin-top: 0px;
   /*transform: rotate(-10deg);*/
 }
-
 .logo{
-  height: 39px;
-  width: 112px;
-  transform: scale(1.2);
+  width: 195px;
+  /*height: 85px;*/
 }
-
 
 
 @media only screen and (min-width: 200px) and (max-width: 990px){
@@ -27,6 +24,11 @@
       display: none;
     }
   }
+@media all and (min-width: 300px) and (max-width: 430px) {
+    .logo{
+      width: 116px;
+    }
+}
 
   /* @media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait) {
     .ipad-portrait { display: none; }
@@ -44,14 +46,14 @@
     .ipad-portrait { display: none; }
     .lb,.sb{font-size: 7px;}
     .tgl-icon{font-size: 8px;}
-    .logo{width: 90px;}
+    .logo{width: 116px;}
   }
 
   @media only screen and (device-width: 320px) and (device-height: 634px) and (orientation:portrait) {
     .ipad-portrait { display: none; }
     .lb,.sb{font-size: 12px;}
     .tgl-icon{font-size: 12px;}
-    .logo{width: 90px;}
+    .logo{width: 116px;}
 
   }
   @media all and (device-width: 1024px) and (device-height: 768px) and (orientation:landscape) {

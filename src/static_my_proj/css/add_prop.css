@@ -1,6 +1,13 @@
 .border{
     border: 1px solid black;
 }
+.title_div_outer{
+    margin-top: 25px!important;
+    height: 50px!important;
+}
+.title_div_inner{
+    height: 100%!important;
+}
 .text-grey{
     color: rgb(153, 153, 153);
     font-size: 0.85rem;
@@ -564,6 +571,27 @@ label.active{
     color: orange;
     transition: 0.2s;
 }
+.floating_label_input.active {
+    border: 1px solid orange;
+    transition: 0.2s;
+}
+.floating_label_input.active ~ span{
+    font-size: 12px;
+    margin: -10px 13px;
+    background: white;
+    padding: 2px;
+    color: orange;
+    transition: 0.2s;
+}
+.floating_label_input.active ~ label{
+    font-size: 12px;
+    margin: -10px 13px;
+    background: white;
+    padding: 2px;
+    color: orange;
+    transition: 0.2s;
+}
+
 .post_btn_outer{
     width: 100%;
     margin-top: 50px;
