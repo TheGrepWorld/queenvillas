@@ -187,7 +187,8 @@
 .image-div img {
     margin: 4px;
     height: 340px;
-    width: -webkit-fill-available;
+    /*width: -webkit-fill-available;*/
+    width: 100%;
     transition: 0.8s;
     border: 2px solid black;
     border-radius: 4px;
@@ -226,13 +227,20 @@
 }
 
 .book-visit-modal{
-    background-color: #000000d4;
+    background-color: #282828;
 }
-
-.book-visit-modal h5{
+.modal-header span{
+    color: white;
+}
+.book-visit-modal h3{
     color: #dc3545;
 }
-
+.book-visit-modal span{
+    font-size: 13px;
+}
+.modal-header button{
+    font-size: 25px;
+}
 .name_input_div{
     height: 100%;
     display: flex;
@@ -240,8 +248,8 @@
 
 .name_input_div input{
     height: 35px;
-    width: 70%;
-    /*padding-left: 16px;*/
+    width: 85%;
+    padding: 25px;
     transition: 0.2s;
     outline: none;
     border: 1px solid rgba(128, 128, 128, 0.7);
@@ -252,12 +260,13 @@
 
 .name_input_div span{
     position: absolute;
-    padding: 4.5px;
+    margin: 18px 25px;
     color: rgb(153,153,153);
     transition: 0.2s;
-    border-radius: 5px;
-    margin-top: 7.5px;
-    margin-bottom: 7.5px;
+    /*border-radius: 5px;*/
+    /*margin-top: 7.5px;*/
+    /*margin-bottom: 7.5px;*/
+    font-size: 20px;
 }
 
 .name_input_div input:hover{
@@ -272,39 +281,42 @@
 
 .name_input_div input:focus ~ span{
     font-size: 12px;
-    border-radius: 5px;
-    margin: -2px 13px;
+    /*border-radius: 2px;*/
+    border-left: 1px solid #dc3545;
+    border-top: 1px solid #dc3545;
+    border-right: 1px solid #dc3545;
+    margin: -14px 13px;
     background: white;
     padding: 2px;
     color: #dc3545;
     transition: 0.2s;
 }
 
-.name_input_div .phone_input{
-    height: 35px;
-    width: 70%;
-    transition: 0.2s;
-    padding-left: 40px;
-    outline: none;
-    border: 1px solid rgba(128, 128, 128, 0.7);
-    border-radius: 5px;
-    margin-top: 7.5px;
-    margin-bottom: 7.5px;
-}
+/*.name_input_div .phone_input{*/
+/*    height: 35px;*/
+/*    width: 70%;*/
+/*    transition: 0.2s;*/
+/*    padding-left: 40px;*/
+/*    outline: none;*/
+/*    border: 1px solid rgba(128, 128, 128, 0.7);*/
+/*    border-radius: 5px;*/
+/*    margin-top: 7.5px;*/
+/*    margin-bottom: 7.5px;*/
+/*}*/
 
 .name_input_div .mobile_placeholder{
-    position: absolute;
-    padding: 5px 40px;
-    color: rgb(153,153,153);
-    transition: 0.2s;
+    padding-left: 30px;
 }
 
 .name_input_div p{
     color: black;
     z-index: 1;
     position: absolute;
-    padding: 12px;
-    font-size: 18px;
+    margin: 15px 12px;
+    font-size: 22px;
+}
+.phone_input{
+    padding-left: 50px!important;
 }
 
 @media only screen and (min-width: 300px) and (max-width: 500px) {
