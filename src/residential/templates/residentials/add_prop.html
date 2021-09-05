@@ -422,31 +422,31 @@
                                         <h5>Property Facilities</h5>
                                     </div>
                                     <div class="pb-2 prop_fac">
-                                        <input type="checkbox" id="Club House" name="Club House" onclick='handleClick(this)'>
+                                        <input type="checkbox" id="Wifi" name="Wifi" onclick='handleClick(this)'>
                                         <span class="checkbox_spans" id="checkbox_item">Wifi</span>
                                     </div>
                                     <div class="pb-2 prop_fac">
-                                        <input type="checkbox" id="Parking" name="Parking" onclick='handleClick(this)'>
+                                        <input type="checkbox" id="Inverter" name="Inverter" onclick='handleClick(this)'>
                                         <span class="checkbox_spans" id="checkbox_item">Inverter</span>
                                     </div>
                                     <div class="pb-2 prop_fac">
-                                        <input type="checkbox" id="24hr water supply" name="24hr water supply" onclick='handleClick(this)'>
-                                        <span class="checkbox_spans" id="checkbox_item">refrigerator</span>
+                                        <input type="checkbox" id="Refrigerator" name="Refrigerator" onclick='handleClick(this)'>
+                                        <span class="checkbox_spans" id="checkbox_item">Refrigerator</span>
                                     </div>
                                     <div class="pb-2 prop_fac">
-                                        <input type="checkbox" id="24hr water supply" name="24hr water supply" onclick='handleClick(this)'>
+                                        <input type="checkbox" id="Air Conditioner" name="Air Conditioner" onclick='handleClick(this)'>
                                         <span class="checkbox_spans" id="checkbox_item">Air Conditioner</span>
                                     </div>
                                     <div class="pb-2 prop_fac">
-                                        <input type="checkbox" id="24hr water supply" name="24hr water supply" onclick='handleClick(this)'>
+                                        <input type="checkbox" id="Geyser" name="Geyser" onclick='handleClick(this)'>
                                         <span class="checkbox_spans" id="checkbox_item">Geyser</span>
                                     </div>
                                     <div class="pb-2 prop_fac">
-                                        <input type="checkbox" id="24hr water supply" name="24hr water supply" onclick='handleClick(this)'>
+                                        <input type="checkbox" id="Modular Kitchen" name="Modular Kitchen" onclick='handleClick(this)'>
                                         <span class="checkbox_spans" id="checkbox_item">Modular Kitchen</span>
                                     </div>
                                     <div class="pb-2 prop_fac">
-                                        <input type="checkbox" id="24hr water supply" name="24hr water supply" onclick='handleClick(this)'>
+                                        <input type="checkbox" id="Bath Tub" name="Bath Tub" onclick='handleClick(this)'>
                                         <span class="checkbox_spans" id="checkbox_item">Bath Tub</span>
                                     </div>
                                 </div>
@@ -456,15 +456,15 @@
                                         <h5>Other Rooms</h5>
                                     </div>
                                     <div class="pb-2 other_rooms">
-                                        <input type="checkbox" id="Club House" name="Club House" onclick='handleClick(this)'>
+                                        <input type="checkbox" id="Study Room" name="Study Room" onclick='handleClick(this)'>
                                         <span class="checkbox_spans" id="checkbox_item">Study room</span>
                                     </div>
                                     <div class="pb-2 other_rooms">
-                                        <input type="checkbox" id="Parking" name="Parking" onclick='handleClick(this)'>
+                                        <input type="checkbox" id="Pooja room" name="Pooja room" onclick='handleClick(this)'>
                                         <span class="checkbox_spans" id="checkbox_item">Pooja room</span>
                                     </div>
                                     <div class="pb-2 other_rooms">
-                                        <input type="checkbox" id="24hr water supply" name="24hr water supply" onclick='handleClick(this)'>
+                                        <input type="checkbox" id="Store room" name="Store room" onclick='handleClick(this)'>
                                         <span class="checkbox_spans" id="checkbox_item">Store room</span>
                                     </div>
                                 </div>
@@ -716,10 +716,17 @@
 
             var div = document.getElementById("amen_list");
             spantext = div.getElementsByClassName("pb-2");
+            console.log(spantext.length)
 
             for(i=0;i<spantext.length;i++) {
                 spantext[i].style.display = '';
             }
+            var propFac = document.getElementById('prop_fac');
+            propFac.style.display = '';
+            var otherRooms = document.getElementById('other_rooms');
+            otherRooms.style.display= '';
+            var other_amens = document.getElementById('other_amen');
+            other_amens.style.display = '';
         }
 
         function filterFunc(){
