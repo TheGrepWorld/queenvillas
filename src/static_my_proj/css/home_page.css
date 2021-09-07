@@ -70,6 +70,42 @@ body{
 .carousel-inner .carousel-item-prev {
   display: flex;
 }
+.modal_header_sub_title{
+  font-size: 13px;
+}
+.residential_option_div{
+  border: 1px solid rgba(153, 153, 153, 0.49);
+  padding: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.residential_option_div:hover{
+  transition: 0.3s;
+  border: 1px solid #dc3545;
+}
+.residential_inner p{
+  font-size: 11px;
+  width: 100%;
+  margin-bottom: 0;
+}
+.residential_inner strong{
+  color: #dc3545;
+}
+.option_img_div{
+  width: 50px;
+  margin-top: 3px;
+}
+.arrow-icon{
+  height: fit-content;
+  position: absolute;
+  margin-left: 83%;
+  margin-top: 15px;
+}
+.arrow-icon i{
+  font-size: 18px;
+}
+
+
 
 /* display 3 */
 @media (min-width: 768px) {
