@@ -11,11 +11,10 @@
 .free-tag{
   margin-left: 82px;
   margin-top: 0px;
-  /*transform: rotate(-10deg);*/
 }
 .logo{
-  width: 195px;
-  /*height: 85px;*/
+  width: 110px;
+  padding: 0px;
 }
 
 
@@ -59,3 +58,217 @@
   @media all and (device-width: 1024px) and (device-height: 768px) and (orientation:landscape) {
     .ipad-landscape { display: none; }
   }
+
+
+
+
+
+/*
+ *
+ * login-register modal
+ *
+ *
+ */
+
+
+.login .modal-dialog{
+  width: 350px;
+}
+.login .modal-footer{
+  border-top: 0;
+  margin-top: 0px;
+  padding: 10px 20px 20px;
+}
+.login .modal-header {
+  border: 0 none;
+  padding: 15px 15px 15px;
+}
+.login .forgot {
+  color: #797979;
+  margin-left: 0;
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+}
+.login .btn-login, .registerBox .btn-register{
+  background-color: #00BBFF;
+  border-color: #00BBFF;
+  border-width: 0;
+  color: #FFFFFF;
+  display: block;
+  margin: 0 auto;
+  padding: 15px 50px;
+  text-transform: uppercase;
+  width: 100%;
+}
+.login .btn-login:hover, .registerBox .btn-register:hover{
+  background-color: #00A4E4;
+  color: #FFFFFF;
+}
+.login .form-control{
+  border-radius: 3px;
+  background-color: rgb(232,240,254);
+  box-shadow: 0 1px 0px 0px rgba(0, 0, 0, 0.09) inset;
+}
+.login .form-control:hover{
+  background-color: rgb(218, 231, 253);
+}
+.login .form-control:focus{
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.04) inset;
+  background-color: rgba(22, 190, 195, 0.3);
+}
+.login .box .form input[type="text"], .login .box .form input[type="password"] {
+  border-radius: 3px;
+  border: none;
+  color: #333333;
+  font-size: 16px;
+  height: 46px;
+  margin-bottom: 5px;
+  padding: 13px 12px;
+  width: 100%;
+}
+
+
+@media (max-width:400px){
+  .login .modal-dialog{
+    width: 100%;
+  }
+}
+
+.big-login, .big-register{
+  background-color: #00bbff;
+  color: #FFFFFF;
+  border-radius: 7px;
+  border-width: 2px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 200;
+  padding: 16px 60px;
+  text-transform: uppercase;
+  transition: all 0.3s ease 0s;
+}
+.big-login:hover{
+  background-color: #00A4E4;
+  color: #FFFFFF;
+}
+.big-register{
+  background-color: rgba(0,0,0,.0);
+  color: #00bbff;
+  border-color: #00bbff;
+}
+.big-register:hover{
+  border-color: #00A4E4;
+  color:  #00A4E4;
+}
+
+
+.modal-header .close {
+  margin-top: -2px;
+}
+.close:hover, .close:focus {
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+button.close {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+}
+.close {
+  float: right;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1;
+  color: #000000;
+  text-shadow: 0 1px 0 #ffffff;
+  opacity: 0.2;
+  filter: alpha(opacity=20);
+}
+.modal-dialog{
+  margin: auto;
+  margin-top: 12vh;
+}
+
+/*
+ *
+ * signup modal
+ *
+ *
+ */
+
+.signup .modal-dialog{
+  width: 500px;
+  margin-top: 0px;
+}
+.signup .modal-footer{
+  border-top: 0;
+  margin-top: 0px;
+  padding: 10px 20px 20px;
+}
+.signup .modal-header {
+  border: 0 none;
+  padding: 15px 15px 15px;
+}
+.signup .forgot {
+  color: #797979;
+  margin-left: 0;
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+}
+.signup .btn-login, .registerBox .btn-register{
+  background-color: #00BBFF;
+  border-color: #00BBFF;
+  border-width: 0;
+  color: #FFFFFF;
+  display: block;
+  margin: 0 auto;
+  padding: 15px 50px;
+  text-transform: uppercase;
+  width: 100%;
+}
+.signup .btn-login:hover, .registerBox .btn-register:hover{
+  background-color: #00A4E4;
+  color: #FFFFFF;
+}
+.signup .form-control{
+  border-radius: 3px;
+  /*background-color: rgba(0, 0, 0, 0.09);*/
+  background-color: rgb(232,240,254);
+  box-shadow: 0 1px 0px 0px rgba(0, 0, 0, 0.09) inset;
+}
+.signup .form-control:hover{
+  background-color: rgb(218, 231, 253);
+}
+.signup .form-control:focus{
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.04) inset;
+  background-color: rgba(22, 190, 195, 0.3);
+}
+.signup .box .form input[type="text"], .login .box .form input[type="password"] {
+  border-radius: 3px;
+  border: none;
+  color: #333333;
+  font-size: 16px;
+  height: 46px;
+  margin-bottom: 5px;
+  padding: 13px 12px;
+  width: 100%;
+}
+
+.signin-btn{
+  background-color: #00BBFF;
+  border-color: #00BBFF;
+}
+
+
+@media (max-width:400px){
+  .signup .modal-dialog{
+    width: 100%;
+  }
+}
+

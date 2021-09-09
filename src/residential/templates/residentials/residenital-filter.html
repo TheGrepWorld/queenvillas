@@ -1,34 +1,48 @@
 {% load static %}
 {% block base_head %}
     <link rel="stylesheet" href="/static/css/home_page.css?{% now 'U' %}">
+    <link rel="stylesheet" href="/static/css/residenital-filter.css">
 
+    <style>
+
+
+
+    </style>
 
 {% endblock %}
 
+{% block content %}
 
-<div class="m-4">
     <form method="GET" action="{% url "residential:residentiallistingHome" %}" id="test">
-{#        {{ form.bhks }}#}
-        <div class="fieldWrapper">
-    {{ form.bhks.errors }}
-    <label for="{{ form.bhks.id_for_label }}"  style="background: none;color:black;"><b>Bedrooms:</b></label>
-    {{ form.bhks }}<br>
-</div>
-                <div class="fieldWrapper">
-    {{ form.price.errors }}
-    <label for="{{ form.price.id_for_label }}"  style="background: none;color:black;"><b>Price Range:</b></label>
-    {{ form.price }}<br>
-</div>
+        {#        {{ form.bhks }}#}
+        <div class="filter-main">
+            <div class="fieldWrapper bhks">
+                {{ form.bhks.errors }}
+                <label for="{{ form.bhks.id_for_label }}" style="background: none;color:black;"><b><!--Bedrooms:--></b></label>
+                {{ form.bhks }}
+            </div>
+            <div class="fieldWrapper">
+                {{ form.price.errors }}
+                <label for="{{ form.price.id_for_label }}" style="background: none;color:black;"><b>Price
+                    Range:</b></label>
+                <div class="price-list">{{ form.price }}</div>
+            </div>
+            <div>
+                <a class="clear-btn btn btn-outline-danger" href="{% url 'residential:residentiallistingHome' %}"> Clear all
+                    filters</a>
+            </div>
+        </div>
 
-{#        <p>Amenities</p>#}
-{#        <input type="checkbox" id="amenity1" name="amenities" value="Park Facing" class="myclass">#}
-{#        <label for="amenity1">Park Facing</label><br>#}
-{#        <input type="checkbox" id="amenity2" name="amenities" value="Extra Parking Space" class="myclass">#}
-{#        <label for="amenity2"> Extra Parking Space</label><br>#}
-{#        <input type="checkbox" id="amenity3" name="amenities" value="Swimming Pool" class="myclass">#}
-{#        <label for="amenity3"> Swimming Pool </label><br><br>#}
+        {#        <p>Amenities</p>#}
+        {#        <input type="checkbox" id="amenity1" name="amenities" value="Park Facing" class="myclass">#}
+        {#        <label for="amenity1">Park Facing</label><br>#}
+        {#        <input type="checkbox" id="amenity2" name="amenities" value="Extra Parking Space" class="myclass">#}
+        {#        <label for="amenity2"> Extra Parking Space</label><br>#}
+        {#        <input type="checkbox" id="amenity3" name="amenities" value="Swimming Pool" class="myclass">#}
+        {#        <label for="amenity3"> Swimming Pool </label><br><br>#}
 
 
-        <a class="btn btn-outline-danger" href="{% url 'residential:residentiallistingHome' %}"> Clear all filters</a>
+
     </form>
-</div>
+
+{% endblock %}

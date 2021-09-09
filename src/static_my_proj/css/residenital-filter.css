@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap');
+
+.filter-main {
+    font-family: 'Nunito', sans-serif;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5px;
+    background-color: #d1d3d1;
+}
+
+.fieldWrapper {
+    padding: 6px 0;
+}
+
+.bhks ul {
+    display: flex;
+}
+
+.bhks label {
+    margin-right: 10px;
+}
+
+.bhks ul li label:after {
+    content: "BHK";
+    margin-right: 10px;
+}
+
+.filter-main input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    position: relative;
+    background-color: #d1d3d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid #f5f4f8;
+}
+
+.filter-main input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    position: relative;
+    background-color: #ffa500;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+.clear-btn {
+    border: 2px solid #ffa500;
+    color: #b07100;
+    font-weight: 500;
+}
+
+.clear-btn:hover {
+    background-color: #ffa500;
+    border-color: #ffa500;
+    color: white;
+}
+
+.price-list {
+    display: none;
+}
