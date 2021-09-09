@@ -3,7 +3,7 @@
 
 {% block content %}
     <h1>Commercial listing Page</h1>
-<h3 class="text-center" id="filter-section"></h3>
+    <h3 class="text-center" id="filter-section"></h3>
     <div class="col">
 
         <div class='row'>
@@ -53,6 +53,20 @@
             var new_url = url.toString();
             return new_url
         }
+
+        {#var x = document.getElementsByClassName("prop-price");#}
+        {#console.log(x);#}
+        {#x = x.toString();#}
+        {#console.log(x.length)#}
+        {#var num1 = '';#}
+        {#for (j = 0; j < x.length; j++) {#}
+        {#   var num = x[j].innerHTML;#}
+        {#    num = num.toString();#}
+        {#    console.log( num)#}
+        {#   var res = new Intl.NumberFormat('en-IN', {currency: 'INR', minimumFractionDigits: 0}).format(num);#}
+        {#   console.log(res);#}
+        {#   x[j].innerHTML = res;#}
+        {#}#}
     </script>
     <script type="text/javascript" src="/static/js/list-resi.js"></script>
 {% endblock %}

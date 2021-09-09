@@ -1,3 +1,5 @@
+import json
+
 from django.http.response import Http404
 from django.shortcuts import render
 from .models import PropertyModelForm
@@ -9,33 +11,110 @@ from django.db.models import Q
 
 
 # from analytics.mixins import ObjectViewdMixin
+def add_property_data(request):
+    if request.method == 'POST':
+        rd = ResidentialDetails()
+        print("mei andar aagya")
+        rd.title = request.POST['title']
+        rd.type = request.POST['postType']
+        rd.property_type = request.POST['propertyType']
+        price = request.POST['sale_price']
+        rd.expected_price = int(price.replace(",",""))
+        print(price,rd.expected_price)
+        rd.descritpion = request.POST['description']
+        is_negotiable = request.POST.get('is_negotiable', 'off')
+        rd.bedrooms = request.POST['bedrooms']
+        rd.city = request.POST['city']
+        rd.locality = request.POST['locality']
+        rd.sub_locality = request.POST['sublocality']
+        rd.house_no = request.POST['houseno']
+        rd.project_society = request.POST['projectname']
+        rd.landmark = request.POST['landmark']
+        rd.builtup_area = request.POST['built-up']
+        rd.carpet_area = request.POST['carpet']
+        rd.builtupunits = request.POST['builtupunits']
+        rd.carpet_units = request.POST['carpetunits']
+        rd.dimension_units = request.POST['dim_units']
+        rd.dim_length = request.POST['dim_length']
+        rd.dim_breadth = request.POST['dim_breadth']
+        rd.property_on_floor = request.POST['property_on_floor']
+        includes_registration = request.POST.get('includes_registration', 'off')
+        rd.total_floors = request.POST['total_floors']
+        rd.furnishing = request.POST['furnishing']
+        rd.bathrooms = request.POST['bathrooms']
+        rd.balconies = request.POST['balconies']
+        rd.house_direction = request.POST['house_direction']
+        rd.posted_user = request.POST['user_type']
+        rd.user_email = request.POST['email_input']
+        rd.user_contact = request.POST['phoneno']
+        rd.possession = request.POST['posession']
+        amenities=request.POST.getlist('amenity_item')
+        am_json=json.dumps(amenities)
+        rd.am=am_json
+        if is_negotiable == 'on':
+            rd.is_negotiable = True
+        else:
+            rd.is_negotiable = False
 
+        if includes_registration == 'on':
+            rd.includes_registration = True
+        else:
+            rd.includes_registration = False
 
+        images = len(request.FILES.getlist('Image'))
+        print(amenities)
+        if images == 1:
+            rd.image = request.FILES.getlist('Image')[0]
+        if images == 2:
+            rd.image = request.FILES.getlist('Image')[0]
+            rd.image1 = request.FILES.getlist('Image')[1]
+        if images == 3:
+            rd.image = request.FILES.getlist('Image')[0]
+            rd.image1 = request.FILES.getlist('Image')[1]
+            rd.image2 = request.FILES.getlist('Image')[2]
+        if images == 4:
+            rd.image = request.FILES.getlist('Image')[0]
+            rd.image1 = request.FILES.getlist('Image')[1]
+            rd.image2 = request.FILES.getlist('Image')[2]
+            rd.image3 = request.FILES.getlist('Image')[3]
+        if images == 5:
+            rd.image = request.FILES.getlist('Image')[0]
+            rd.image1 = request.FILES.getlist('Image')[1]
+            rd.image2 = request.FILES.getlist('Image')[2]
+            rd.image3 = request.FILES.getlist('Image')[3]
+            rd.image4 = request.FILES.getlist('Image')[4]
+        if images == 6:
+            rd.image = request.FILES.getlist('Image')[0]
+            rd.image1 = request.FILES.getlist('Image')[1]
+            rd.image2 = request.FILES.getlist('Image')[2]
+            rd.image3 = request.FILES.getlist('Image')[3]
+            rd.image4 = request.FILES.getlist('Image')[4]
+            rd.image5 = request.FILES.getlist('Image')[5]
+        if images == 7:
+            rd.image = request.FILES.getlist('Image')[0]
+            rd.image1 = request.FILES.getlist('Image')[1]
+            rd.image2 = request.FILES.getlist('Image')[2]
+            rd.image3 = request.FILES.getlist('Image')[3]
+            rd.image4 = request.FILES.getlist('Image')[4]
+            rd.image5 = request.FILES.getlist('Image')[5]
+            rd.image6 = request.FILES.getlist('Image')[6]
+        if images == 8:
+            rd.image = request.FILES.getlist('Image')[0]
+            rd.image1 = request.FILES.getlist('Image')[1]
+            rd.image2 = request.FILES.getlist('Image')[2]
+            rd.image3 = request.FILES.getlist('Image')[3]
+            rd.image4 = request.FILES.getlist('Image')[4]
+            rd.image5 = request.FILES.getlist('Image')[5]
+            rd.image6 = request.FILES.getlist('Image')[6]
+            rd.image7 = request.FILES.getlist('Image')[7]
+
+        rd.save()
+        return render(request, 'residentials/added-prop.html')
 
 
 def add_property(request):
-    print("if ke bahar")
-    if request.method == 'POST':
-        print("mei andar aagya")
-        list_for = request.POST['postType']
-        prop_type=request.POST['propertyType']
-        available_from =request.POST['available_from']
-        price=request.POST['sale_price']
-        descritpion=request.POST['description']
-        is_negotiable=request.POST['is_negotiable']
-
-        print(list_for,prop_type,available_from,price,descritpion,is_negotiable)
-        return render(request, "home_page.html")
-    else:
+    if request.method == 'GET':
         return render(request, 'residentials/add_prop.html')
-
-
-image_list = []
-
-
-def add_image(request):
-    if request.method == 'POST':
-        image_list.append(request.POST['image'])
 
 
 def ResidentialListView(request):

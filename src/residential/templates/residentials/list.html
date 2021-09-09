@@ -59,15 +59,15 @@
         }
 
         var x = document.getElementsByClassName("prop-price");
-        {#console.log(x);#}
-        {#x = x.toString();#}
+        console.log(x);
+        x = x.toString();
         console.log(x.length)
 
         var num1='';
         for(j=0;j<x.length;j++){
             var num = x[j].innerHTML;
-            {#num = num.toString();#}
-            {#console.log( num)#}
+            num = num.toString();
+            console.log( num)
 
             var res = new Intl.NumberFormat('en-IN', {currency: 'INR', minimumFractionDigits: 0}).format(num);
             console.log(res);

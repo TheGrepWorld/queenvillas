@@ -1,0 +1,62 @@
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header d-block">
+                <div class="w-100 d-flex">
+                    <h3 class="modal-title" id="staticBackdropLabel"><span id="modal_title">option</span> Property</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="w-100 modal_header_sub_title">
+                    <span>choose what type of property you wish to <span id="title_subtext_value"></span></span>
+                </div>
+
+            </div>
+            <div class="modal-body">
+
+                <a href="{% url 'residential:add' %}" style="text-decoration: none; color: black"
+                   class="residential_option_div d-flex">
+                    <div class="option_img_div">
+                        <img src="https://www.seekpng.com/png/detail/61-618983_cartoon-house-png-house-icon-png.png"
+                             alt="" width="40" height="40">
+                    </div>
+                    <div class="residential_inner">
+                        <h5>Residential Property</h5>
+                        <p>Choose this if you wish to sell a <strong>Villa/Kothi/Appartment</strong> etc</p>
+                    </div>
+                    <div class="arrow-icon">
+                        <i class="fas fa-caret-right"></i>
+                    </div>
+                </a>
+                <div class="residential_option_div d-flex mt-4">
+                    <div class="option_img_div">
+                        <img src="https://www.kindpng.com/picc/m/2-25118_commercial-property-clip-art-at-clker-building-clipart.png"
+                             alt="" width="40" height="50">
+                    </div>
+                    <div class="residential_inner">
+                        <h5>Commercial Property</h5>
+                        <p>Choose this if you wish to sell a <strong>Office Space/Shops </strong> etc</p>
+                    </div>
+                    <div class="arrow-icon">
+                        <i class="fas fa-caret-right"></i>
+                    </div>
+                </div>
+                <div class="residential_option_div d-flex mt-4">
+                    <div class="option_img_div">
+                        <img src="https://img.favpng.com/4/16/21/arable-land-png-favpng-4GMQnT8SdV896dTLJ0x1cv34m.jpg"
+                             alt="" width="40" height="40">
+                    </div>
+                    <div class="residential_inner">
+                        <h5>Agricultural Property</h5>
+                        <p>Choose this if you wish to sell an <strong>Agricultural Land</strong> etc</p>
+                    </div>
+                    <div class="arrow-icon">
+                        <i class="fas fa-caret-right"></i>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

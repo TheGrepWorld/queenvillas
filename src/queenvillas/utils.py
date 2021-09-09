@@ -1,6 +1,6 @@
 import string
 from random import random
-
+import random
 from django.utils.text import slugify
 
 

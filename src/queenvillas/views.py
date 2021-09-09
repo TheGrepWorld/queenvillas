@@ -57,7 +57,7 @@ def handle_login(request):
             messages.success(request, "Successfully logged in")
             return redirect('home')
         else:
-            messages.ERROR(request, "Invalid credentials")
+            messages.error(request, "Invalid credentials")
             return redirect('home')
 
     return HttpResponse('404-Not Found')

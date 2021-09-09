@@ -9,15 +9,18 @@
 
     <div class="QGIZl">
         <section class="post-form-section">
-            <form>
+            <form method="post" action="{% url 'residential:add-data' %}" enctype="multipart/form-data" >
+                {% csrf_token %}
                 <div class="post_box">
                     <h1 class="pp_h1">Post Property</h1>
-                    <span class="pp_span">Sell/Rent/Lease your property in Simple Steps. Posting ad is free of cost <i class="far fa-smile-wink"></i></span>
+                    <span class="pp_span">Sell/Rent/Lease your property in Simple Steps. Posting ad is free of cost <i
+                            class="far fa-smile-wink"></i></span>
                     <div class="owner_details_outer title_div_outer">
                         <div class="name_input_outer title_div_inner">
                             <div class="name_input_div title_input_div">
-                                <input type="text" class="name_input title_input floating_label_input" onblur="floatActive()" id="title_input" >
-                                <span onclick="focusOnElement('name_input')">Property Title*</span>
+                                <input type="text" class="name_input title_input floating_label_input"
+                                       onblur="floatActive()" id="title_input" name="title">
+                                <span onclick="focusOnElement('title_input')">Property Title*</span>
                             </div>
                         </div>
                     </div>
@@ -32,19 +35,19 @@
                         <div class="post_options_outer">
                             <div class="post_options_inner">
                                 <label>
-                                    <input class="post_option_input" type="radio" name="postType" value="SELL" >
+                                    <input class="post_option_input" type="radio" name="postType" value="SELL">
                                     <span class="post_option_item">SELL</span>
                                 </label>
                                 <label>
-                                    <input class="post_option_input" type="radio" name="postType" value="BUY" >
+                                    <input class="post_option_input" type="radio" name="postType" value="BUY">
                                     <span class="post_option_item">BUY</span>
                                 </label>
                                 <label>
-                                    <input class="post_option_input" type="radio" name="postType" value="RENT" >
+                                    <input class="post_option_input" type="radio" name="postType" value="RENT">
                                     <span class="post_option_item">RENT</span>
                                 </label>
                                 <label>
-                                    <input class="post_option_input" type="radio" name="postType" value="LEASE" >
+                                    <input class="post_option_input" type="radio" name="postType" value="LEASE">
                                     <span class="post_option_item">LEASE</span>
                                 </label>
                             </div>
@@ -56,51 +59,56 @@
                         <div class="post_options_outer">
                             <div class="post_options_inner">
                                 <label>
-                                    <input class="post_option_input" type="radio" name="propertyType" value="flat" >
+                                    <input class="post_option_input" type="radio" name="propertyType" value="flat">
                                     <span class="post_option_item">FLAT</span>
                                 </label>
                                 <label>
-                                    <input class="post_option_input" type="radio" name="propertyType" value="appartment" >
+                                    <input class="post_option_input" type="radio" name="propertyType"
+                                           value="appartment">
                                     <span class="post_option_item">APPARTMENT</span>
                                 </label>
                                 <label>
-                                    <input class="post_option_input" type="radio" name="propertyType" value="plot" >
+                                    <input class="post_option_input" type="radio" name="propertyType" value="plot">
                                     <span class="post_option_item">PLOT</span>
                                 </label>
                                 <label>
-                                    <input class="post_option_input" type="radio" name="propertyType" value="villaHouse" >
+                                    <input class="post_option_input" type="radio" name="propertyType"
+                                           value="villaHouse">
                                     <span class="post_option_item">VILLA&nbsp;/&nbsp;INDEPENDENT&nbsp;HOUSE</span>
                                 </label>
                                 <label>
-                                    <input class="post_option_input" type="radio" name="propertyType" value="commercial" >
+                                    <input class="post_option_input" type="radio" name="propertyType"
+                                           value="commercial">
                                     <span class="post_option_item">COMMERCIAL</span>
                                 </label>
                                 <label>
-                                    <input class="post_option_input" type="radio" name="propertyType" value="builderFloor" >
+                                    <input class="post_option_input" type="radio" name="propertyType"
+                                           value="builderFloor">
                                     <span class="post_option_item">BUILDER&nbsp;FLOOR</span>
                                 </label>
                                 <label>
-                                    <input class="post_option_input" type="radio" name="propertyType" value="officeSpace" >
+                                    <input class="post_option_input" type="radio" name="propertyType"
+                                           value="officeSpace">
                                     <span class="post_option_item">OFFICE&nbsp;SPACE</span>
                                 </label>
                                 <label>
-                                    <input class="post_option_input" type="radio" name="propertyType" value="others" >
+                                    <input class="post_option_input" type="radio" name="propertyType" value="others">
                                     <span class="post_option_item">OTHERS</span>
                                 </label>
                             </div>
                         </div>
                     </div>
 
-{#                    <div class="max_width mt-3">#}
-{#                        <div>#}
-{#                            <div>#}
-{#                                <div class="calender_div">#}
-{#                                    <label class="avail_from" for="available_from">Available from</label>#}
-{#                                    <input type="date" class="date-input" min="2021-08-26" name="available_from" required=""  value="2021-08-26">#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
+                    {#                    <div class="max_width mt-3">#}
+                    {#                        <div>#}
+                    {#                            <div>#}
+                    {#                                <div class="calender_div">#}
+                    {#                                    <label class="avail_from" for="available_from">Available from</label>#}
+                    {#                                    <input type="date" class="date-input" min="2021-08-26" name="available_from" required=""  value="2021-08-26">#}
+                    {#                                </div>#}
+                    {#                            </div>#}
+                    {#                        </div>#}
+                    {#                    </div>#}
 
 
                     {# modal button trigger #}
@@ -108,18 +116,22 @@
                         <div>
                             <div>
                                 <div class="calender_div">
-                                    <input type="button" class="btn btn-primary prop-details-btn bg-transparent " value="Property details*" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <input type="button" class="btn btn-primary prop-details-btn bg-transparent "
+                                           value="Property details*" data-bs-toggle="modal"
+                                           data-bs-target="#exampleModal">
                                     <i class="fas fa-caret-right"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                         aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="d-flex p-3 modal_header">
-                                    <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <button type="button" class="btn-close p-2" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
                                     <h3 class="modal-title ms-3" id="exampleModalLabel">Property Details</h3>
                                 </div>
                                 <span class="mandat-text">* fields are mandatory to fill</span>
@@ -127,97 +139,103 @@
                                     <div class="row p-1 mt-2 mb-4">
                                         <div class="col-lg-4 mb-2">
                                             <label class="label_city">City*</label>
-                                            <input type="text" class="city_input" required>
+                                            <input type="text" name="city" class="city_input" required>
                                         </div>
                                         <div class="col-lg-4 mb-2">
                                             <label class="label_city">Locality*</label>
-                                            <input type="text" class="city_input" required>
+                                            <input type="text" name="locality" class="city_input" required>
                                         </div>
                                         <div class="col-lg-4 mb-2">
                                             <label class="label_city">Sub-locality</label>
-                                            <input type="text" class="city_input" required>
+                                            <input type="text" name="sublocality" class="city_input" required>
                                         </div>
                                         <div class="col-lg-4 mt-2">
                                             <label class="label_city">House No</label>
-                                            <input type="text" class="city_input" required>
+                                            <input type="text" name="houseno" class="city_input" required>
                                         </div>
                                         <div class="col-lg-4 mt-2 w-50">
                                             <label class="label_city">Landmark</label>
-                                            <input type="text" class="city_input" required>
+                                            <input type="text" name="landmark" class="city_input" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
-                                        <input type="text" class="city_input p-3 mb-3" required placeholder="Project Name (optional)">
+                                        <input type="text" name="projectname" class="city_input p-3 mb-3" required
+                                               placeholder="Project/Society Name (optional)">
                                     </div>
 
                                     <div class="post_type_div mt-3 mb-2">
                                         <span>Property type*</span>
                                         <div class="post_options_outer">
-                                            <div class="post_options_inner">
-                                                <label>
-                                                    <input class="post_option_input" type="radio" name="propertyType" value="flat" >
-                                                    <span class="post_option_item">1RK</span>
-                                                </label>
-                                                <label>
-                                                    <input class="post_option_input" type="radio" name="propertyType" value="appartment" >
-                                                    <span class="post_option_item">1BHK</span>
-                                                </label>
-                                                <label>
-                                                    <input class="post_option_input" type="radio" name="propertyType" value="builderFloor" >
-                                                    <span class="post_option_item">2BHK</span>
-                                                </label>
-                                                <label>
-                                                    <input class="post_option_input" type="radio" name="propertyType" value="villaHouse" >
-                                                    <span class="post_option_item">3BHK</span>
-                                                </label>
-                                                <label>
-                                                    <input class="post_option_input" type="radio" name="propertyType" value="villaHouse" >
-                                                    <span class="post_option_item">4+&nbsp;BHK</span>
-                                                </label>
-                                            </div>
+                                            {#                                            <div class="post_options_inner">#}
+                                            {#                                                <label>#}
+                                            {#                                                    <input class="post_option_input" type="radio" name="bhk" value="1RK" >#}
+                                            {#                                                    <span class="post_option_item">1RK</span>#}
+                                            {#                                                </label>#}
+                                            {#                                                <label>#}
+                                            {#                                                    <input class="post_option_input" type="radio" name="bhk" value="0" >#}
+                                            {#                                                    <span class="post_option_item">1BHK</span>#}
+                                            {#                                                </label>#}
+                                            {#                                                <label>#}
+                                            {#                                                    <input class="post_option_input" type="radio" name="bhk" value="2" >#}
+                                            {#                                                    <span class="post_option_item">2BHK</span>#}
+                                            {#                                                </label>#}
+                                            {#                                                <label>#}
+                                            {#                                                    <input class="post_option_input" type="radio" name="bhk" value="3" >#}
+                                            {#                                                    <span class="post_option_item">3BHK</span>#}
+                                            {#                                                </label>#}
+                                            {#                                                <label>#}
+                                            {#                                                    <input class="post_option_input" type="radio" name="bhk" value="4" >#}
+                                            {#                                                    <span class="post_option_item">4BHK</span>#}
+                                            {#                                                </label>#}
+                                            {#                                                   <label>#}
+                                            {#                                                    <input class="post_option_input" type="radio" name="bhk" value="5" >#}
+                                            {#                                                    <span class="post_option_item">5+&nbsp;BHK</span>#}
+                                            {#                                                </label>#}
+                                            {#                                            </div>#}
                                         </div>
                                     </div>
                                     <div class="row p-1 mt-2 mb-4">
                                         <div class="col-lg-3 d-flex">
                                             <label class="label_city">Built Up*</label>
-                                            <input type="number" class="city_input" value="0" required>
-                                                <div class="unit_div">
-                                                    <select class="unit-select">
-                                                        <option value="Sq.Ft.">Sq.Ft.</option>
-                                                        <option value="Sq.Ft.">yards</option>
-                                                    </select>
-                                                </div>
+                                            <input type="number" class="city_input" name="built-up" required>
+                                            <div class="unit_div">
+                                                <select class="unit-select" name="builtupunits">
+                                                    <option value="Sq.Ft.">Sq.Ft.</option>
+                                                    <option value="yards">yards</option>
+                                                </select>
+                                            </div>
                                         </div>
 
                                         <div class="col-lg-3 d-flex">
                                             <label class="label_city">Carpet Area</label>
-                                            <input type="number" class="city_input" value="0" required>
+                                            <input type="number" class="city_input" name="carpet" required>
                                             <div class="unit_div">
-                                                <select class="unit-select">
+
+                                                <select class="unit-select" name="carpetunits">
                                                     <option value="Sq.Ft.">Sq.Ft.</option>
-                                                    <option value="Sq.Ft.">yards</option>
+                                                    <option value="yards">yards</option>
                                                 </select>
                                             </div>
                                         </div>
 
                                         <div class="col-lg-3 d-flex">
                                             <label class="label_city">Length*</label>
-                                            <input type="number" class="city_input" value="0" required>
+                                            <input type="number" name="dim_length" class="city_input"
+                                                   required>
                                             <div class="unit_div">
-                                                <select class="unit-select">
-                                                    <option value="Sq.Ft.">Sq.Ft.</option>
-                                                    <option value="Sq.Ft.">yards</option>
+                                                <select class="unit-select" name="dim_units">
+                                                    <option  value="Ft.">Ft.</option>
                                                 </select>
                                             </div>
                                         </div>
 
                                         <div class="col-lg-3 d-flex">
                                             <label class="label_city">Breadth*</label>
-                                            <input type="number" class="city_input" value="0" required>
+                                            <input type="number" name="dim_breadth" class="city_input"
+                                                   required>
                                             <div class="unit_div">
                                                 <select class="unit-select">
-                                                    <option value="Sq.Ft.">Sq.Ft.</option>
-                                                    <option value="Sq.Ft.">yards</option>
+                                                    <option value="Ft.">Ft.</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -227,13 +245,13 @@
                                 </div>
 
                                 <div class="border-none centre footer-div">
-                                    <button type="button" class="btn btn-warning text-white btn-footer">Apply</button>
+                                    <button type="button" class="btn btn-warning text-white btn-footer" data-bs-dismiss="modal"
+                                            aria-label="Close">Apply</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
 
 
                 {# Section -2#}
@@ -243,16 +261,22 @@
                         <div class="card shadow-sm">
                             <div class="card-header d-flex justify-content-between">
                                 <h3>Image Preview will be available below</h3>
-                                <form class="form" action="#" method="post" id="form1">
-                                    <input type="file" name="Image" id="image" multiple="" class="d-none" onchange="image_select()">
-                                    <button class="btn btn-sm btn-danger" type="button" onclick="document.getElementById('image').click()">Choose Images</button>
-                                </form>
+                                <div class="form" action="#" method="post" id="form1">
+                                    <input type="file" name="Image" id="image" multiple="" class="d-none"
+                                           onchange="image_select()">
+                                    <button class="btn btn-sm btn-danger" type="button"
+                                            onclick="document.getElementById('image').click()">Choose Images
+                                    </button>
+                                </div>
                             </div>
                             <div class="card-body flex-wrap" id="container">
                                 <!-- Image will be show here-->
                             </div>
                         </div>
-                        <p class="dxhf6u-0 hSaRrp jxvgwa-7 lmibEW"><b>Photos <span class="img-count" id="img-count"> <!-- -->0<!-- -->/15 </span> </b>Increase your chances of getting genuine responses by adding atleast 5 images. <br> Hall, Bedroom, Kitchen, and Bathroom images will be ideal to add for a home</p>
+                        <p class="dxhf6u-0 hSaRrp jxvgwa-7 lmibEW"><b>Photos <span class="img-count" id="img-count"> <!-- -->0
+                            <!-- -->/15 </span> </b>Increase your chances of getting genuine responses by adding atleast
+                            5 images. <br> Hall, Bedroom, Kitchen, and Bathroom images will be ideal to add for a home
+                        </p>
                     </div>
 
                 </div>
@@ -263,7 +287,8 @@
                     <div class="col-lg-6 d-flex mt-4">
                         <label class="label_city">price*</label>
                         <label class="rupee_symbol" id="rupee"><i class="fas fa-rupee-sign"></i></label>
-                        <input type="number" id="sale_price" class="city_input" placeholder="Sale Price (eg 5,00,000)" required onchange="format_amount()" style="padding-left: 35px">
+                        <input type="number" id="sale_price" class="city_input" placeholder="Sale Price (eg 5,00,000)"
+                               name="sale_price" required onchange="format_amount()" style="padding-left: 35px">
                     </div>
 
                     <div class="div-check-items d-flex mt-3">
@@ -272,7 +297,7 @@
                             <span class="text-is-negotiable ms-2">Price is negotiable</span>
                         </label>
                         <label class="label-check-items">
-                            <input type="checkbox" name="is_negotiable">
+                            <input type="checkbox" name="includes_registration">
                             <span class="text-is-negotiable ms-2">Price includes registration</span>
                         </label>
                     </div>
@@ -286,8 +311,11 @@
                     <div class="inner_div">
                         <div class="tarea_div">
                             <div class="text_input_div">
-                                <textarea class="text_input floating_label_input" type="text" id="desc_input" name="description" required="" rows="6" onblur="floatActive()"></textarea>
-                                <label class="text_input_label" for="description" onclick="focusOnElement('desc_input')">Describe your property (min 30 words)*</label>
+                                <textarea class="text_input floating_label_input" type="text" id="desc_input"
+                                          name="description" required="" rows="6" onblur="floatActive()"></textarea>
+                                <label class="text_input_label" for="description"
+                                       onclick="focusOnElement('desc_input')">Describe your property (min 30
+                                    words)*</label>
                             </div>
                         </div>
                     </div>
@@ -297,11 +325,11 @@
                             <div class="prop_floors_inputs_div">
                                 <div class="prop_floors_inputs">
                                     <label>Property on floor*</label>
-                                    <input type="number" class="prop_floor_input_field" min="1">
+                                    <input type="number" class="prop_floor_input_field" name="property_on_floor" min="1">
                                 </div>
                                 <div class="prop_floors_inputs">
                                     <label>Total floors*</label>
-                                    <input type="number" class="prop_floor_input_field" min="1">
+                                    <input type="number" name="total_floors" class="prop_floor_input_field" min="1">
                                 </div>
                             </div>
                         </div>
@@ -312,57 +340,79 @@
                         <div class="post_options_outer pt-1">
                             <div class="post_options_inner">
                                 <label>
-                                    <input class="post_option_input" type="radio" name="postType" value="FULLYFURNISHED" >
+                                    <input class="post_option_input" type="radio" name="furnishing"
+                                           value="FULLYFURNISHED">
                                     <span class="post_option_item">Fully&nbsp;Furnished</span>
                                 </label>
                                 <label>
-                                    <input class="post_option_input" type="radio" name="postType" value="SEMIFURNISHED" >
+                                    <input class="post_option_input" type="radio" name="furnishing" value="SEMIFURNISHED">
                                     <span class="post_option_item">Semi&nbsp;Furnished</span>
                                 </label>
                                 <label>
-                                    <input class="post_option_input" type="radio" name="postType" value="UNFURNISHED" >
+                                    <input class="post_option_input" type="radio" name="furnishing" value="UNFURNISHED">
                                     <span class="post_option_item">Unfurnished</span>
                                 </label>
                                 <label>
-                                    <input class="post_option_input" type="radio" name="postType" value="OTHER" >
+                                    <input class="post_option_input" type="radio" name="furnishing" value="OTHER">
                                     <span class="post_option_item">Other</span>
                                 </label>
                             </div>
                         </div>
                     </div>
 
-                    <div class="post_type_div pt-2">
-                        <span class="">Number Of Bathrooms</span>
-                        <div class="post_options_outer pt-1">
-                            <div class="post_options_inner">
-                                <label>
-                                    <input class="post_option_input" type="radio" name="postType" value="0" >
-                                    <span class="post_option_item">0</span>
-                                </label>
-                                <label>
-                                    <input class="post_option_input" type="radio" name="postType" value="1" >
-                                    <span class="post_option_item">1</span>
-                                </label>
-                                <label>
-                                    <input class="post_option_input" type="radio" name="postType" value="2" >
-                                    <span class="post_option_item">2</span>
-                                </label>
-                                <label>
-                                    <input class="post_option_input" type="radio" name="postType" value="3+" >
-                                    <span class="post_option_item">3+</span>
-                                </label>
+                    <div class="prop_floors_div">
+                        <div class="prop_floors_inner_div">
+                            <div class="prop_floors_inputs_div">
+                                <div class="prop_floors_inputs">
+                                    <label>Number of Bathrooms*</label>
+                                    <input type="number" name="bathrooms" class="prop_floor_input_field" min="1">
+                                </div>
+                                <div class="prop_floors_inputs">
+                                    <label>Number of Bedrooms*</label>
+                                    <input type="number" name="bedrooms" class="prop_floor_input_field" min="1">
+                                </div>
                             </div>
                         </div>
                     </div>
+                    {#                    <div class="post_type_div pt-2">#}
+                    {#                        <span class="">Number Of Bathrooms</span>#}
+                    {#                        <div class="post_options_outer pt-1">#}
+                    {#                            <div class="post_options_inner">#}
+                    {#                                <label>#}
+                    {#                                    <input class="post_option_input" type="radio" name="postType" value="0" >#}
+                    {#                                    <span class="post_option_item">0</span>#}
+                    {#                                </label>#}
+                    {#                                <label>#}
+                    {#                                    <input class="post_option_input" type="radio" name="postType" value="1" >#}
+                    {#                                    <span class="post_option_item">1</span>#}
+                    {#                                </label>#}
+                    {#                                <label>#}
+                    {#                                    <input class="post_option_input" type="radio" name="postType" value="2" >#}
+                    {#                                    <span class="post_option_item">2</span>#}
+                    {#                                </label>#}
+                    {#                                <label>#}
+                    {#                                    <input class="post_option_input" type="radio" name="postType" value="3+" >#}
+                    {#                                    <span class="post_option_item">3+</span>#}
+                    {#                                </label>#}
+                    {#                            </div>#}
+                    {#                        </div>#}
+                    {#                         <input type="number" class="prop_floor_input_field" min="1">#}
+                    {#                    </div>#}
 
                     <div class="select_outer_div mt-3 mb-4">
                         <div class="select_inner_div w-50">
                             <span class="text-grey">Number of balconies</span>
-                            <select class="form-select mt-2 select_padding" aria-label="Default select example">
+                            <select class="form-select mt-2 select_padding" aria-label="Default select example" name="balconies">
                                 <option value="1" class="color_black">1</option>
                                 <option value="2" class="color_black">2</option>
                                 <option value="3" class="color_black">3</option>
-                                <option value="4+" class="color_black">4+</option>
+                                <option value="4" class="color_black">4</option>
+                                <option value="5" class="color_black">5</option>
+                                <option value="6" class="color_black">6</option>
+                                <option value="7" class="color_black">7</option>
+                                <option value="8" class="color_black">8</option>
+                                <option value="9" class="color_black">9</option>
+                                <option value="10" class="color_black">10</option>
                             </select>
                         </div>
                     </div>
@@ -372,20 +422,22 @@
                         <div class="post_options_outer">
                             <div class="post_options_inner">
                                 <label>
-                                    <input class="post_option_input" type="radio" name="posession" value="READY TO MOVE" >
+                                    <input class="post_option_input" type="radio" name="posession"
+                                           value="READY TO MOVE">
                                     <span class="post_option_item">READY TO MOVE</span>
                                 </label>
                                 <label>
-                                    <input class="post_option_input" type="radio" name="posession" value="IN 3 MONTHS" >
+                                    <input class="post_option_input" type="radio" name="posession" value="IN 3 MONTHS">
                                     <span class="post_option_item">IN 3 MONTHS</span>
                                 </label>
                                 <label>
-                                    <input class="post_option_input" type="radio" name="posession" value="IN 6 MONTHS" >
+                                    <input class="post_option_input" type="radio" name="posession" value="IN 6 MONTHS">
                                     <span class="post_option_item">IN 6 MONTHS</span>
                                 </label>
                                 <label>
-                                    <input class="post_option_input" type="radio" name="posession" value="MORE THAN 6 MONTHS" >
-                                    <span class="post_option_item">LEASE</span>
+                                    <input class="post_option_input" type="radio" name="posession"
+                                           value="MORE THAN 6 MONTHS">
+                                    <span class="post_option_item">MORE THAN 6 MONTHS</span>
                                 </label>
                             </div>
                         </div>
@@ -395,9 +447,11 @@
                         <div class="amen_inner_top d-flex">
                             <div class="amen_left_search_div">
                                 <span class="search_icon_amen"><i class="fa fa-search"></i></span>
-                                <input class="search_input" id="search_amen_input" type="text" placeholder="Type or select amenities..." onkeyup="filterFunc()" onclick="emptyInput()">
+                                <input class="search_input" id="search_amen_input" type="text"
+                                       placeholder="Type or select amenities..." onkeyup="filterFunc()"
+                                       onclick="emptyInput()">
                             </div>
-{#                            <button type="button" class="btn btn-outline-warning add_amen_button">Add</button>#}
+                            {#                            <button type="button" class="btn btn-outline-warning add_amen_button">Add</button>#}
                         </div>
                         <div class="amen_inner_bottom">
                             <div class="amen_left_area" id="amen_left_area">
@@ -407,9 +461,9 @@
                                 <div class="amen_selected_div">
                                     <div class="container">
                                         <div class="row" id="amen_selected_div">
-{#                                            <div class="col-4 div_item">#}
-{#                                                <span>column -1</span>#}
-{#                                            </div>#}
+                                            {#                                            <div class="col-4 div_item">#}
+                                            {#                                                <span>column -1</span>#}
+                                            {#                                            </div>#}
                                         </div>
                                     </div>
                                 </div>
@@ -522,7 +576,7 @@
                     <div class="select_outer_div mt-4">
                         <div class="select_inner_div w-50">
                             <span class="text-grey">Direction Facing</span>
-                            <select class="form-select mt-2 select_padding" aria-label="Default select example">
+                            <select class="form-select mt-2 select_padding" name="house_direction" aria-label="Default select example">
                                 <option value="North" class="color_black">North</option>
                                 <option value="South" class="color_black">South</option>
                                 <option value="East" class="color_black">East</option>
@@ -533,7 +587,6 @@
                             </select>
                         </div>
                     </div>
-
 
 
                 </div>
@@ -547,15 +600,15 @@
                         <div class="post_options_outer">
                             <div class="post_options_inner">
                                 <label>
-                                    <input class="post_option_input" type="radio" name="postType" value="SELL" >
+                                    <input class="post_option_input" type="radio" name="user_type" value="Owner">
                                     <span class="post_option_item">Owner</span>
                                 </label>
                                 <label>
-                                    <input class="post_option_input" type="radio" name="postType" value="BUY" >
+                                    <input class="post_option_input" type="radio" name="user_type" value="Agent">
                                     <span class="post_option_item">Agent</span>
                                 </label>
                                 <label>
-                                    <input class="post_option_input" type="radio" name="postType" value="RENT" >
+                                    <input class="post_option_input" type="radio" name="user_type" value="Builder">
                                     <span class="post_option_item">Builder</span>
                                 </label>
                             </div>
@@ -565,19 +618,23 @@
                     <div class="owner_details_outer">
                         <div class="name_input_outer">
                             <div class="name_input_div">
-                                <input type="text" class="name_input floating_label_input" id="name_input" onblur="floatActive()" >
+                                <input type="text" class="name_input floating_label_input" id="name_input"
+                                       onblur="floatActive()" name="user_name_input">
                                 <span onclick="focusOnElement('name_input')">Full Name*</span>
                             </div>
 
                             <div class="name_input_div mt-4">
-                                <input type="text" class="email_input floating_label_input" id="email_input" onblur="floatActive()">
+                                <input type="email" name="email_input" class="email_input floating_label_input" id="email_input"
+                                       onblur="floatActive()">
                                 <span id="email_span" onclick="focusOnElement('email_input')">Email Address*</span>
                             </div>
 
                             <div class="name_input_div mt-4">
-                                <input type="number" class="phone_input floating_label_input" maxlength="10" id="phone_input" onblur="floatActive()">
+                                <input type="number" class="phone_input floating_label_input" maxlength="10"
+                                       id="phone_input" onblur="floatActive()" name="phoneno">
                                 <p style="color: black">+91</p>
-                                <span class="mobile_placeholder" onclick="focusOnElement('phone_input')" id="mobile_input">Mobile No*</span>
+                                <span class="mobile_placeholder" onclick="focusOnElement('phone_input')"
+                                      id="mobile_input">Mobile No*</span>
                             </div>
                             <div class="bottom_bottom">
                                 <span>This mobile number will be used for further communication and stuff</span>
@@ -606,15 +663,14 @@
 
 
 
-{% block javascript  %}
+{% block javascript %}
     <script>
-        $(document).ready(function (){
-            $(".text_input_div .text_input").blur(function (){
-                if($(this).val()!==""){
+        $(document).ready(function () {
+            $(".text_input_div .text_input").blur(function () {
+                if ($(this).val() !== "") {
                     $(this).siblings("label").addClass("active");
 
-                }
-                else{
+                } else {
                     $(this).siblings("label").removeClass("active");
 
                 }
@@ -635,12 +691,11 @@
             for (i = 0; i < image.length; i++) {
                 if (check_duplicate(image[i].name)) {
                     images.push({
-                        "name" : image[i].name,
-                        "url" : URL.createObjectURL(image[i]),
-                        "file" : image[i],
+                        "name": image[i].name,
+                        "url": URL.createObjectURL(image[i]),
+                        "file": image[i],
                     })
-                } else
-                {
+                } else {
                     alert(image[i].name + " is already added to the list");
                 }
             }
@@ -692,16 +747,16 @@
             return form;
         }
 
-        function format_amount(){
-            var x=document.getElementById("sale_price").value;
-            x=x.toString();
-            var num="";
-            for(var i=0;i<x.length;i++){
-                if(x.charAt(i) !== ','){
-                    num+=x.charAt(i);
+        function format_amount() {
+            var x = document.getElementById("sale_price").value;
+            x = x.toString();
+            var num = "";
+            for (var i = 0; i < x.length; i++) {
+                if (x.charAt(i) !== ',') {
+                    num += x.charAt(i);
                 }
             }
-            var res = new Intl.NumberFormat('en-IN', {currency: 'INR', minimumFractionDigits: 0 }).format(num);
+            var res = new Intl.NumberFormat('en-IN', {currency: 'INR', minimumFractionDigits: 0}).format(num);
             console.log(res);
 
             document.getElementById("sale_price").type = "text";
@@ -711,25 +766,25 @@
         }
 
         function emptyInput() {
-           var input = document.getElementById("search_amen_input");
+            var input = document.getElementById("search_amen_input");
             input.value = '';
 
             var div = document.getElementById("amen_list");
             spantext = div.getElementsByClassName("pb-2");
             console.log(spantext.length)
 
-            for(i=0;i<spantext.length;i++) {
+            for (i = 0; i < spantext.length; i++) {
                 spantext[i].style.display = '';
             }
             var propFac = document.getElementById('prop_fac');
             propFac.style.display = '';
             var otherRooms = document.getElementById('other_rooms');
-            otherRooms.style.display= '';
+            otherRooms.style.display = '';
             var other_amens = document.getElementById('other_amen');
             other_amens.style.display = '';
         }
 
-        function filterFunc(){
+        function filterFunc() {
             var input, filtertext, div, spantext;
 
             input = document.getElementById("search_amen_input");
@@ -754,28 +809,28 @@
             var isOtherRoomOptionAvail = false;
             var isOtherAmenOptionAvail = false;
 
-            for(var i=0;i<propFac.length;i++) {
+            for (var i = 0; i < propFac.length; i++) {
                 var display = getComputedStyle(propFac[i]).display;
                 {#console.log(display)#}
-                if(!display.toString().includes('none')){
+                if (!display.toString().includes('none')) {
                     {#console.log('found one')#}
                     isPropFacOptionAvail = true;
                     break;
                 }
             }
-            for(i=0;i<otherRooms.length;i++) {
+            for (i = 0; i < otherRooms.length; i++) {
                 display = getComputedStyle(otherRooms[i]).display;
                 {#console.log(display)#}
-                if(!display.toString().includes('none')){
+                if (!display.toString().includes('none')) {
                     {#console.log('found one')#}
                     isOtherRoomOptionAvail = true;
                     break;
                 }
             }
-            for(i=0;i<other_amens.length;i++) {
+            for (i = 0; i < other_amens.length; i++) {
                 display = getComputedStyle(other_amens[i]).display;
                 {#console.log(display)#}
-                if(!display.toString().includes('none')){
+                if (!display.toString().includes('none')) {
                     {#console.log('found one')#}
                     isOtherAmenOptionAvail = true;
                     break;
@@ -783,23 +838,20 @@
             }
 
 
-            if(isPropFacOptionAvail){
+            if (isPropFacOptionAvail) {
                 document.getElementById('prop_fac').style.display = '';
-            }
-            else{
+            } else {
                 document.getElementById('prop_fac').style.display = 'none';
             }
 
-            if(isOtherRoomOptionAvail){
+            if (isOtherRoomOptionAvail) {
                 document.getElementById('other_rooms').style.display = '';
-            }
-            else{
+            } else {
                 document.getElementById('other_rooms').style.display = 'none';
             }
-            if(isOtherAmenOptionAvail){
+            if (isOtherAmenOptionAvail) {
                 document.getElementById('other_amen').style.display = '';
-            }
-            else{
+            } else {
                 document.getElementById('other_amen').style.display = 'none';
             }
 
@@ -808,8 +860,8 @@
         var selected = [];
 
 
-        function removeItem(id){
-            document.getElementById(id+'_div').remove();
+        function removeItem(id) {
+            document.getElementById(id + '_div').remove();
             const index = selected.indexOf(id);
 
             if (index > -1) {
@@ -817,7 +869,7 @@
                 console.log(id);
                 document.getElementById(id).checked = false
             }
-            if(selected.length === 0){
+            if (selected.length === 0) {
                 document.getElementById('no_content_placeholder').innerHTML = 'You have not selected anything';
                 document.getElementById('no_content_placeholder').style.color = 'red';
             }
@@ -839,15 +891,14 @@
                 div.appendChild(div_item);
                 document.getElementById('no_content_placeholder').innerHTML = 'You have selected the following';
                 document.getElementById('no_content_placeholder').style.color = 'rgb(148, 147, 147)';
-            }
-            else{
+            } else {
                 console.log('unchecked')
                 const index = selected.indexOf(cb.value);
                 if (index > -1) {
                     selected.splice(index, 1);
                     document.getElementById(cb.value+'_div').remove();
                 }
-                if(selected.length === 0){
+                if (selected.length === 0) {
                     document.getElementById('no_content_placeholder').innerHTML = 'You have not selected anything';
                     document.getElementById('no_content_placeholder').style.color = 'red';
                 }
@@ -856,20 +907,19 @@
             }
         }
 
-        function focusOnElement(id){
+        function focusOnElement(id) {
             document.getElementById(id).focus();
         }
 
         function floatActive() {
             var inputs = document.getElementsByClassName('floating_label_input');
 
-            for(var i=0;i<inputs.length;i++){
+            for (var i = 0; i < inputs.length; i++) {
                 var text = inputs[i].value;
 
-                if(text.length > 0){
+                if (text.length > 0) {
                     inputs[i].classList.add('active');
-                }
-                else{
+                } else {
                     inputs[i].classList.remove('active');
                 }
 
