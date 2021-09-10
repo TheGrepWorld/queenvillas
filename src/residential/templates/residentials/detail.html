@@ -39,8 +39,8 @@
 
         <div class="detail-div row">
             <div class="col-lg-4 col-md-4 col-sm-12 image-div">
-    {% if object.iamge.url %}
-                <div data-toggle="modal" data-target="#basicExampleModal" style="cursor: zoom-in;">
+    {% if object.image.url %}
+                <div data-bs-toggle="modal" data-bs-target="#basicExampleModal" style="cursor: zoom-in;">
 
                     <img src="{{ object.image.url }}">
 
@@ -173,7 +173,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Images</h5>
-                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
                         </div>
@@ -206,7 +206,7 @@
 {#                        </div>#}
 
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
