@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %} <!--  mandatory for css -->
+{% block base_head %}
+    <link rel="stylesheet" href="/static/css/contactus.css?{% now 'U' %}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="sec mt-3">
+        <div class="row heading">
+            <h2>Got Some queries?</h2>
+        </div>
+        <div class="row heading mb-5">
+            <p>Fill the form and we will contact you</p>
+        </div>
+
+        <div class="row form_div">
+            <div class="col-lg-6 left">
+                <div class="img_div">
+                    <img src="https://dd7tel2830j4w.cloudfront.net/f1505468260832x993779528886079700/letter.svg">
+                </div>
+            </div>
+            <div class="col-lg-5 right">
+                <div class="inputs_div">
+                    <input placeholder="First Name">
+                    <input placeholder="Last Name">
+                    <input placeholder="Email ID">
+                    <textarea rows="5" placeholder="Write your query"></textarea>
+                    <button type="submit" class="form_btn mt-4 text-white">SEND MESSAGE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <div class="container-fluid sec-2 mt-5 mb-5">
+            <div class="row sec-2-heading gx-0 mt-4">
+                <h3>We are located here</h3>
+            </div>
+            <div class="row gx-0 map_box mt-4">
+                <div class="col-lg-8">
+                    <div class="container box">
+                        <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=930&amp;height=400&amp;hl=en&amp;q=smaaash chandigarh&amp;t=h&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://www.fnfgo.com/">FNF Mods</a></div><style>.mapouter{position:relative;width:100%;height:100%;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:100%;}.gmap_iframe {width:100%;height:400px!important;}</style></div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="box-right">
+                        <div class="hq_div">
+                            <h5 class="p-2">Headquarters</h5>
+                            <p class="p-2">Sector 42-C, 2nd Floor
+                                Tinserl Towers, Phase-I
+                                Mohali, Punjab</p>
+                        </div>
+                        <div class="hq_div">
+                            <h5 class="p-2">Phone / Fax</h5>
+                            <p class="p-2">+ 1 888 HUBSPOT
+                                (1+ 888 482 7768)
+                                <br>
+                                Fax: +1 617 812 5820</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

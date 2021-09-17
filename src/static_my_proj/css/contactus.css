@@ -1,0 +1,93 @@
+.sec-2{
+    padding: 30px;
+    margin-top: 30px;
+    border-top: 1px dashed grey;
+}
+.heading h2, .heading p{
+    text-align: center;
+}
+.heading p{
+    font-size: 13px;
+}
+
+.img_div{
+    width: 400px;
+    margin: 0 auto;
+}
+.inputs_div{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    width: 500px;
+}
+.inputs_div input{
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 30px;
+    border: 1px solid grey;
+}
+.inputs_div textarea{
+    margin-bottom: 15px;
+    border-radius: 20px;
+    padding: 15px;
+    border: 1px solid grey;
+}
+.inputs_div button{
+    background: -webkit-linear-gradient(left, rgb(148, 115, 221) 0%, rgb(26, 201, 228) 100%);
+    border-radius: 30px;
+    border: none;
+    padding: 15px;
+}
+.mapouter{
+    padding: 18px;
+}
+.map_box{
+    background-color: white;
+    box-shadow: 2px 2px 3px 0px rgba(99,95,95,0.99);
+}
+.sec-2-heading h3{
+    text-align: center;
+}
+.hq_div{
+    padding-left: 30px;
+}
+.hq_div p{
+    width: 185px;
+}
+.iframe_div{
+    border: 2px solid blue;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+@media screen and (max-width: 1024px){
+    .upper{
+        height: 100px;
+    }
+    .left{
+        margin-bottom: 8px;
+    }
+    .img_div{
+        margin: 0 auto;
+        float: none;
+        width: 275px;
+    }
+    .right input, .right button{
+        width: 100%;
+        margin-left: 0;
+    }
+    .right textarea{
+        margin-left: 0;
+        width: 100%;
+    }
+    .sec-2{
+        padding: 0;
+    }
+    .map_box,.hq_div p, .inputs_div{
+        width: 100%;
+    }
+}
