@@ -25,12 +25,22 @@
     padding: 10px;
     border-radius: 30px;
     border: 1px solid grey;
+    outline: none;
+    transition: 0.3s;
+}
+.inputs_div input:hover, .inputs_div textarea:hover{
+    border: 1px solid black;
+}
+.inputs_div input:focus, .inputs_div textarea:focus{
+    border: 1px solid orange;
 }
 .inputs_div textarea{
     margin-bottom: 15px;
     border-radius: 20px;
     padding: 15px;
     border: 1px solid grey;
+    outline: none;
+    transition: 0.3s;
 }
 .inputs_div button{
     background: -webkit-linear-gradient(left, rgb(148, 115, 221) 0%, rgb(26, 201, 228) 100%);
