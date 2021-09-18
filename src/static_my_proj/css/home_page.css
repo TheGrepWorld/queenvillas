@@ -234,6 +234,7 @@ body::-webkit-scrollbar{
   background: rgba(234, 229, 229, 0.55);
   height: 20% ;
   padding: 8px;
+  border-top: 1px solid grey;
 }
 .row_upper{
   height: 60%;
