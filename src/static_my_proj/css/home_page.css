@@ -3,6 +3,9 @@ body{
   background-color: #f5f4f8;
   overflow-x: hidden;
 }
+body::-webkit-scrollbar{
+  width: 9px;
+}
 .qv{
   padding: 6%;
 }
@@ -32,6 +35,8 @@ body{
 ::-webkit-scrollbar-thumb:hover {
   background: #c2bebe;
 }
+
+
 
 #showcase{
   /*background-image: url("https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80");*/
@@ -155,6 +160,8 @@ body{
   }
 }
 
+
+
 @media only screen and (device-width: 280px) and (device-height: 653px) and (orientation:portrait) {
   .buy-btn{width: 180px;}
   .sell-btn{width: 180px;margin-top: 10px;}
@@ -178,5 +185,96 @@ body{
   }
   .header-img{
 
+  }
+}
+
+.top_listing_heading{
+  margin-top: 40px;
+}
+.top_listing_heading h2{
+  text-align: center;
+}
+.prem_props_section{
+  /*border: 1px solid black;*/
+  height: 550px;
+  margin: 10px;
+  padding: 10px;
+}
+.div_items{
+  /*border: 1px solid red;*/
+  height: 100%;
+  padding: 10px;
+}
+.div_item_inner{
+  border: 1px solid grey;
+  width: 70%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  padding: 10px;
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+.div_items .div_item_inner::-webkit-scrollbar{
+ height: 5px;
+}
+
+.div_item{
+  border: 1px solid grey;
+  height: 100%;
+  min-width: 40%;
+  margin-right: 15px;
+}
+.div_item img{
+  height: 80%;
+  padding: 2px;
+}
+
+.cf{
+  background: rgba(234, 229, 229, 0.55);
+  height: 20% ;
+  padding: 8px;
+}
+.row_upper{
+  height: 60%;
+  font-size: 15px;
+}
+.cf_foot{
+  height: 40%;
+}
+.pos_tag{
+  /*background: #006b1b;*/
+  color: green;
+  font-weight: bold;
+  /*font-size: 12px;*/
+  /*padding: 5px;*/
+}
+.div_item .col{
+  font-size: 15px;
+}
+
+
+@media screen and (min-width: 320px) and (max-width: 760px) {
+  .div_item{
+    min-width: 100%;
+  }
+  .div_item_inner{
+    width: 100%;
+  }
+  .prem_props_section{
+    padding: 0;
+    height: 100%;
+  }
+  .pos_tag{
+    font-size: 12px;
+  }
+
+}
+@media screen and (min-width: 765px) and (max-width: 1030px){
+  .div_item{
+    min-width: 60%;
+  }
+  .row_upper, .cf_foot{
+    font-size: 12px;
   }
 }

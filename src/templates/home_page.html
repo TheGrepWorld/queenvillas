@@ -90,68 +90,307 @@
 
     {% include 'search/snippets/search-form.html' %}
 
-    <div class="container text-center my-3">
-        <h2 class="font-weight-light">Bootstrap 4 - Multi Item Carousel</h2>
-        <div class="row mx-auto my-auto">
-            <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
-                <div class="carousel-inner w-100" role="listbox">
-                    <div class="carousel-item active">
-                        <div class="col-md-4">
-                            <div class="card card-body">
-                                <img class="img-fluid" src="http://placehold.it/380?text=10">
+{#    <div class="container text-center my-3 mt-5 mb-5">#}
+{#        <h2 class="font-weight-light">Top 5 Premium Properties</h2>#}
+{#        <div class="row mx-auto my-auto">#}
+{#            <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">#}
+{#                <div class="carousel-inner w-100" role="listbox">#}
+{#                    <div class="carousel-item active">#}
+{#                        <div class="col-md-4">#}
+{#                            <div class="card card-body">#}
+{#                                <div class="card_body_inner">#}
+{#                                    <img class="img-fluid" src="https://www.kindpng.com/picc/m/3-33337_house-1-home-photography-exterior-luxury-hd-png.png">#}
+{#                                    <div class="div_amens">#}
+{#                                        <div class="row gx-0 mt-2">#}
+{#                                            <div class="col-3">#}
+{#                                                <i class="fas fa-bed"></i> <span>4BHK</span>#}
+{#                                            </div>#}
+{#                                            <div class="col-4">#}
+{#                                                <i class="fas fa-car"></i> <span>parking available</span>#}
+{#                                            </div>#}
+{#                                            <div class="col-5">#}
+{#                                                <i class="fas fa-directions"></i> <span>North-West facing</span>#}
+{#                                            </div>#}
+{#                                            <div class="col-3 mt-4 font_big">#}
+{#                                                <i class="fas fa-rupee-sign"></i> <span class="price">85,00,000</span>#}
+{#                                            </div>#}
+{#                                            <div class="col-8 mt-4 font_big">#}
+{#                                                <span class="posession">Ready To Move</span>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{##}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+
+{#                    <div class="carousel-item ">#}
+{#                        <div class="col-md-4">#}
+{#                            <div class="card card-body">#}
+{#                                <div class="card_body_inner">#}
+{#                                    <img class="img-fluid" src="https://www.pngplay.com/wp-content/uploads/7/House-PNG-Clipart-Background.png">#}
+{#                                    <div class="div_amens">#}
+{#                                        <div class="row gx-0 mt-2">#}
+{#                                            <div class="col-3">#}
+{#                                                <i class="fas fa-bed"></i> <span>4BHK</span>#}
+{#                                            </div>#}
+{#                                            <div class="col-4">#}
+{#                                                <i class="fas fa-car"></i> <span>parking available</span>#}
+{#                                            </div>#}
+{#                                            <div class="col-5">#}
+{#                                                <i class="fas fa-directions"></i> <span>North-West facing</span>#}
+{#                                            </div>#}
+{#                                            <div class="col-3 mt-4 font_big">#}
+{#                                                <i class="fas fa-rupee-sign"></i> <span class="price">85,00,000</span>#}
+{#                                            </div>#}
+{#                                            <div class="col-8 mt-4 font_big">#}
+{#                                                <span class="posession">Ready To Move</span>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{##}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="carousel-item ">#}
+{#                        <div class="col-md-4">#}
+{#                            <div class="card card-body">#}
+{#                                <div class="card_body_inner">#}
+{#                                    <img class="img-fluid" src="https://www.kindpng.com/picc/m/219-2190956_house-hd-png-download.png">#}
+{#                                    <div class="div_amens">#}
+{#                                        <div class="row gx-0 mt-2">#}
+{#                                            <div class="col-3">#}
+{#                                                <i class="fas fa-bed"></i> <span>4BHK</span>#}
+{#                                            </div>#}
+{#                                            <div class="col-4">#}
+{#                                                <i class="fas fa-car"></i> <span>parking available</span>#}
+{#                                            </div>#}
+{#                                            <div class="col-5">#}
+{#                                                <i class="fas fa-directions"></i> <span>North-West facing</span>#}
+{#                                            </div>#}
+{#                                            <div class="col-3 mt-4 font_big">#}
+{#                                                <i class="fas fa-rupee-sign"></i> <span class="price">85,00,000</span>#}
+{#                                            </div>#}
+{#                                            <div class="col-8 mt-4 font_big">#}
+{#                                                <span class="posession">Ready To Move</span>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{##}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="carousel-item ">#}
+{#                        <div class="col-md-4">#}
+{#                            <div class="card card-body">#}
+{#                                <div class="card_body_inner">#}
+{#                                    <img class="img-fluid" src="http://pngimg.com/uploads/house/house_PNG67.png">#}
+{#                                    <div class="div_amens">#}
+{#                                        <div class="row gx-0 mt-2">#}
+{#                                            <div class="col-3">#}
+{#                                                <i class="fas fa-bed"></i> <span>4BHK</span>#}
+{#                                            </div>#}
+{#                                            <div class="col-4">#}
+{#                                                <i class="fas fa-car"></i> <span>parking available</span>#}
+{#                                            </div>#}
+{#                                            <div class="col-5">#}
+{#                                                <i class="fas fa-directions"></i> <span>North-West facing</span>#}
+{#                                            </div>#}
+{#                                            <div class="col-3 mt-4 font_big">#}
+{#                                                <i class="fas fa-rupee-sign"></i> <span class="price">85,00,000</span>#}
+{#                                            </div>#}
+{#                                            <div class="col-8 mt-4 font_big">#}
+{#                                                <span class="posession">Ready To Move</span>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{##}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="carousel-item ">#}
+{#                        <div class="col-md-4">#}
+{#                            <div class="card card-body">#}
+{#                                <div class="card_body_inner">#}
+{#                                    <img class="img-fluid" src="https://pngimage.net/wp-content/uploads/2018/06/indian-house-png-4.png">#}
+{#                                    <div class="div_amens">#}
+{#                                        <div class="row gx-0 mt-2">#}
+{#                                            <div class="col-3">#}
+{#                                                <i class="fas fa-bed"></i> <span>4BHK</span>#}
+{#                                            </div>#}
+{#                                            <div class="col-4">#}
+{#                                                <i class="fas fa-car"></i> <span>parking available</span>#}
+{#                                            </div>#}
+{#                                            <div class="col-5">#}
+{#                                                <i class="fas fa-directions"></i> <span>North-West facing</span>#}
+{#                                            </div>#}
+{#                                            <div class="col-3 mt-4 font_big">#}
+{#                                                <i class="fas fa-rupee-sign"></i> <span class="price">85,00,000</span>#}
+{#                                            </div>#}
+{#                                            <div class="col-8 mt-4 font_big">#}
+{#                                                <span class="posession">Ready To Move</span>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{##}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">#}
+{#                    <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle"#}
+{#                          aria-hidden="true"></span>#}
+{#                    <span class="sr-only">Previous</span>#}
+{#                </a>#}
+{#                <a class="carousel-control-next w-auto" href="#recipeCarousel" role="button" data-slide="next">#}
+{#                    <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle"#}
+{#                          aria-hidden="true"></span>#}
+{#                    <span class="sr-only">Next</span>#}
+{#                </a>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+
+    <div class="top_listing_heading">
+        <h2>Our Top Listings</h2>
+    </div>
+
+    <section class="prem_props_section">
+        <div class="div_items">
+            <div class="div_item_inner">
+                <div class="div_item">
+                    <img class="img-fluid" src="https://pngimage.net/wp-content/uploads/2018/06/indian-house-png-4.png">
+                    <div class="cf gx-0">
+                        <div class="row gx-0 row_upper">
+                            <div class="col-lg-3">
+                                <i class="fas fa-bed"></i> <span>4 BHK</span>
+                            </div>
+                            <div class="col-lg-5">
+                                <i class="fas fa-car"></i> <span>Parking Available</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <i class="fas fa-directions"></i> <span>North-West</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-md-4">
-                            <div class="card card-body">
-                                <img class="img-fluid" src="http://placehold.it/380?text=11">
+                        <div class="row cf_foot gx-0 align-items-end">
+                            <div class="col-8">
+                                <i class="fas fa-rupee-sign"></i> <span>85,00,000</span>
                             </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-md-4">
-                            <div class="card card-body">
-                                <img class="img-fluid" src="http://placehold.it/380?text=12">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-md-4">
-                            <div class="card card-body">
-                                <img class="img-fluid" src="http://placehold.it/380?text=13">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-md-4">
-                            <div class="card card-body">
-                                <img class="img-fluid" src="http://placehold.it/380?text=5">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-md-4">
-                            <div class="card card-body">
-                                <img class="img-fluid" src="http://placehold.it/380?text=6">
+                            <div class="col-3">
+                                <span class="pos_tag">Ready to Move</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle"
-                          aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next w-auto" href="#recipeCarousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle"
-                          aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+
+                <div class="div_item">
+                    <img class="img-fluid" src="https://www.kindpng.com/picc/m/3-33337_house-1-home-photography-exterior-luxury-hd-png.png">
+                    <div class="cf gx-0">
+                        <div class="row gx-0 row_upper">
+                            <div class="col-lg-3">
+                                <i class="fas fa-bed"></i> <span>4 BHK</span>
+                            </div>
+                            <div class="col-lg-5">
+                                <i class="fas fa-car"></i> <span>Parking Available</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <i class="fas fa-directions"></i> <span>North-West</span>
+                            </div>
+                        </div>
+                        <div class="row cf_foot gx-0 align-items-end">
+                            <div class="col-8">
+                                <i class="fas fa-rupee-sign"></i> <span>85,00,000</span>
+                            </div>
+                            <div class="col-3">
+                                <span class="pos_tag">Ready to Move</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="div_item">
+                    <img class="img-fluid" src="http://pngimg.com/uploads/house/house_PNG67.png">
+                    <div class="cf gx-0">
+                        <div class="row gx-0 row_upper">
+                            <div class="col-lg-3">
+                                <i class="fas fa-bed"></i> <span>4 BHK</span>
+                            </div>
+                            <div class="col-lg-5">
+                                <i class="fas fa-car"></i> <span>Parking Available</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <i class="fas fa-directions"></i> <span>North-West</span>
+                            </div>
+                        </div>
+                        <div class="row cf_foot gx-0 align-items-end">
+                            <div class="col-8">
+                                <i class="fas fa-rupee-sign"></i> <span>85,00,000</span>
+                            </div>
+                            <div class="col-3">
+                                <span class="pos_tag">Ready to Move</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="div_item">
+                    <img class="img-fluid" src="https://www.kindpng.com/picc/m/219-2190956_house-hd-png-download.png">
+                    <div class="cf gx-0">
+                        <div class="row gx-0 row_upper">
+                            <div class="col-lg-3">
+                                <i class="fas fa-bed"></i> <span>4 BHK</span>
+                            </div>
+                            <div class="col-lg-5">
+                                <i class="fas fa-car"></i> <span>Parking Available</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <i class="fas fa-directions"></i> <span>North-West</span>
+                            </div>
+                        </div>
+                        <div class="row cf_foot gx-0 align-items-end">
+                            <div class="col-8">
+                                <i class="fas fa-rupee-sign"></i> <span>85,00,000</span>
+                            </div>
+                            <div class="col-3">
+                                <span class="pos_tag">Ready to Move</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="div_item">
+                    <img class="img-fluid" src="https://pngimage.net/wp-content/uploads/2018/06/indian-house-png-4.png">
+                    <div class="cf gx-0">
+                        <div class="row gx-0 row_upper">
+                            <div class="col-lg-3">
+                                <i class="fas fa-bed"></i> <span>4 BHK</span>
+                            </div>
+                            <div class="col-lg-5">
+                                <i class="fas fa-car"></i> <span>Parking Available</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <i class="fas fa-directions"></i> <span>North-West</span>
+                            </div>
+                        </div>
+                        <div class="row cf_foot gx-0 align-items-end">
+                            <div class="col-8">
+                                <i class="fas fa-rupee-sign"></i> <span>85,00,000</span>
+                            </div>
+                            <div class="col-3">
+                                <span class="pos_tag">Ready to Move</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-        <h5 class="mt-2">Advances one slide at a time</h5>
-    </div>
+    </section>
 
 
 {% endblock %}
@@ -160,32 +399,7 @@
     <script>
 
 
-        $('.carousel .carousel-item').each(function () {
-            var minPerSlide = 3;
-            var next = $(this).next();
-            if (!next.length) {
-                next = $(this).siblings(':first');
-            }
-            next.children(':first-child').clone().appendTo($(this));
 
-            for (var i = 0; i < minPerSlide; i++) {
-                next = next.next();
-                if (!next.length) {
-                    next = $(this).siblings(':first');
-                }
-
-                next.children(':first-child').clone().appendTo($(this));
-            }
-        });
-
-        {#function setModalTitle(btn){#}
-        {#    var modalTitle = document.getElementById('modal_title');#}
-        {#    var btntext = btn.id;#}
-        {#    var subtextValue =  document.getElementById('title_subtext_value');#}
-        {#    modalTitle.innerHTML = btntext;#}
-        {#    subtextValue.innerText = btntext;#}
-        {
-        #}#}
 
     </script>
 
